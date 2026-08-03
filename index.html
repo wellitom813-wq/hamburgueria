@@ -1,73 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Minha Hamburgueria</title>
+<title>Minha Hamburgueria Delivery</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
     background:#f5f5f5;
+}
+
+header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+header h1{
     margin:0;
 }
 
-header {
-    background:#111;
-    color:white;
-    padding:20px;
-    text-align:center;
-}
-
-.container {
+.abas{
+    display:flex;
+    justify-content:center;
+    gap:10px;
     padding:15px;
-}
-
-.card {
     background:white;
+}
+
+.abas button{
+    padding:10px 15px;
+    border:none;
+    border-radius:20px;
+    background:#e63946;
+    color:white;
+}
+
+.container{
     padding:15px;
-    margin:10px 0;
-    border-radius:12px;
+}
+
+.produto{
+    background:white;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:15px;
     box-shadow:0 2px 8px #ccc;
 }
 
-button {
-    background:#e63946;
-    color:white;
-    border:0;
-    padding:10px;
-    border-radius:8px;
-    cursor:pointer;
+.produto img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
 }
 
-.preco {
+.produto h3{
+    margin-bottom:5px;
+}
+
+.preco{
+    font-size:18px;
     font-weight:bold;
 }
 
-input {
+.produto button{
     width:100%;
     padding:12px;
-    margin:5px 0;
-    border-radius:8px;
-    border:1px solid #ccc;
+    background:#25a244;
+    color:white;
+    border:none;
+    border-radius:10px;
 }
 
-#listaCarrinho p {
-    background:#eee;
-    padding:8px;
-    border-radius:6px;
+.carrinho{
+    background:white;
+    margin:15px;
+    padding:15px;
+    border-radius:15px;
 }
+
 </style>
 
 </head>
 
+
 <body>
 
+
 <header>
+
 <h1>🍔 Minha Hamburgueria</h1>
-<p>Delivery rápido e saboroso</p>
+
+<p>O melhor delivery da cidade</p>
+
 </header>
+
+
+
+<div class="abas">
+
+<button>🍔 Hambúrguer</button>
+
+<button>🍕 Pizza</button>
+
+<button>🥤 Bebidas</button>
+
+</div>
+
 
 
 <div class="container">
@@ -75,149 +122,338 @@ input {
 
 <h2>🍔 Hambúrgueres</h2>
 
-<div class="card">
+
+<div class="produto">
+
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+
 <h3>X-Bacon</h3>
-<p class="preco">R$ 20,00</p>
+
+<p>Hambúrguer, bacon, queijo e molho especial</p>
+
+<p class="preco">
+R$ 20,00
+</p>
+
 <button onclick="adicionar('X-Bacon',20)">
 Adicionar
 </button>
+
 </div>
 
 
-<div class="card">
+
+<div class="produto">
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+
 <h3>X-Salada</h3>
-<p class="preco">R$ 18,00</p>
+
+<p>Hambúrguer, queijo, salada e molho</p>
+
+<p class="preco">
+R$ 18,00
+</p>
+
 <button onclick="adicionar('X-Salada',18)">
 Adicionar
 </button>
+
 </div>
+
 
 
 <h2>🍕 Pizzas</h2>
 
-<div class="card">
+
+<div class="produto">
+
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+
 <h3>Pizza Calabresa</h3>
-<p class="preco">R$ 35,00</p>
+
+<p>Mussarela, calabresa e cebola</p>
+
+<p class="preco">
+R$ 35,00
+</p>
+
 <button onclick="adicionar('Pizza Calabresa',35)">
 Adicionar
 </button>
-</div>
 
-
-<div class="card">
-<h3>Pizza Frango</h3>
-<p class="preco">R$ 38,00</p>
-<button onclick="adicionar('Pizza Frango',38)">
-Adicionar
-</button>
 </div>
 
 
 
 <h2>🥤 Bebidas</h2>
 
-<div class="card">
+
+<div class="produto">
+
+<img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e">
+
 <h3>Coca-Cola 2L</h3>
-<p class="preco">R$ 12,00</p>
+
+<p class="preco">
+R$ 12,00
+</p>
+
 <button onclick="adicionar('Coca-Cola 2L',12)">
 Adicionar
 </button>
+
 </div>
 
+
+</div>
+
+
+
+<div class="carrinho">
 
 <h2>🛒 Carrinho</h2>
 
-<div class="card">
-
 <div id="listaCarrinho">
-Carrinho vazio
+
+Seu carrinho está vazio
+
 </div>
+
 
 <h3>
-Total: R$ <span id="total">0.00</span>
+
+Total:
+R$ <span id="total">0.00</span>
+
 </h3>
+<div class="carrinho">
 
-</div>
+<h2>📍 Dados do pedido</h2>
+
+<input id="nomeCliente" placeholder="Seu nome">
+
+<br><br>
+
+<input id="enderecoCliente" placeholder="Seu endereço">
+
+<br><br>
 
 
-<h2>📍 Dados do cliente</h2>
+<h3>🚚 Forma de entrega</h3>
 
-<div class="card">
-
-<input id="nome" placeholder="Seu nome">
-
-<input id="endereco" placeholder="Seu endereço">
+<p>Taxa de entrega: R$ 3,00</p>
 
 
-<button onclick="finalizar()">
+<h3>💳 Forma de pagamento</h3>
+
+
+<select id="pagamento">
+
+<option value="Pix">
+Pix
+</option>
+
+
+<option value="Dinheiro">
+Dinheiro
+</option>
+
+
+<option value="Cartão">
+Cartão
+</option>
+
+
+</select>
+
+
+<br><br>
+
+
+<button onclick="finalizarPedido()">
+
 💬 Finalizar Pedido
+
 </button>
 
-</div>
-
 
 </div>
-
 
 <script>
 
-let total = 0;
 let carrinho = [];
 
 
 function adicionar(nome, preco){
 
-total += preco;
+    let produto = carrinho.find(item => item.nome === nome);
 
-carrinho.push({
-nome:nome,
-preco:preco
-});
 
-mostrarCarrinho();
+    if(produto){
+
+        produto.quantidade++;
+
+    } else {
+
+        carrinho.push({
+
+            nome:nome,
+            preco:preco,
+            quantidade:1
+
+        });
+
+    }
+
+
+    atualizarCarrinho();
 
 }
 
 
 
-function mostrarCarrinho(){
+function aumentar(index){
+
+    carrinho[index].quantidade++;
+
+    atualizarCarrinho();
+
+}
+
+
+
+function diminuir(index){
+
+    carrinho[index].quantidade--;
+
+
+    if(carrinho[index].quantidade <= 0){
+
+        carrinho.splice(index,1);
+
+    }
+
+
+    atualizarCarrinho();
+
+}
+
+
+
+function remover(index){
+
+    carrinho.splice(index,1);
+
+    atualizarCarrinho();
+
+}
+
+
+
+function atualizarCarrinho(){
+
 
 let lista = document.getElementById("listaCarrinho");
 
-lista.innerHTML="";
+let total = 0;
 
 
-carrinho.forEach(item=>{
-
-lista.innerHTML += `
-<p>
-🍔 ${item.nome} - R$ ${item.preco.toFixed(2)}
-</p>
-`;
-
-});
+lista.innerHTML = "";
 
 
-document.getElementById("total").textContent =
-total.toFixed(2);
+if(carrinho.length === 0){
+
+    lista.innerHTML = "Seu carrinho está vazio";
 
 }
 
 
 
-function finalizar(){
+carrinho.forEach((item,index)=>{
+
+
+total += item.preco * item.quantidade;
+
+
+lista.innerHTML += `
+
+
+<div style="margin-bottom:15px">
+
+
+<b>${item.nome}</b>
+
+<br>
+
+R$ ${item.preco.toFixed(2)}
+
+
+<br>
+
+
+<button onclick="diminuir(${index})">
+-
+</button>
+
+
+${item.quantidade}
+
+
+<button onclick="aumentar(${index})">
++
+</button>
+
+
+<button onclick="remover(${index})">
+🗑️
+</button>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+document.getElementById("total").innerText =
+total.toFixed(2);
+
+
+
+}
+
+function finalizarPedido(){
+
 
 let nome =
-document.getElementById("nome").value;
+document.getElementById("nomeCliente").value;
+
 
 let endereco =
-document.getElementById("endereco").value;
+document.getElementById("enderecoCliente").value;
+
+
+let pagamento =
+document.getElementById("pagamento").value;
+
+
+
+let taxa = 5;
+
+
+let totalPedido = 0;
 
 
 let mensagem =
 `🍔 *Pedido - Minha Hamburgueria*
 
-👤 Cliente: ${nome}
+👤 Cliente:
+${nome}
+
 
 📍 Endereço:
 ${endereco}
@@ -227,20 +463,52 @@ ${endereco}
 `;
 
 
+
 carrinho.forEach(item=>{
 
+
+let subtotal =
+item.preco * item.quantidade;
+
+
+totalPedido += subtotal;
+
+
 mensagem +=
-`\n🍔 ${item.nome} - R$ ${item.preco.toFixed(2)}`;
+`
+🍔 ${item.nome}
+Quantidade: ${item.quantidade}
+R$ ${subtotal.toFixed(2)}
+`;
 
 });
 
 
+
+totalPedido += taxa;
+
+
+
 mensagem +=
-`\n\n💰 Total: R$ ${total.toFixed(2)}`;
+`
+
+🚚 Taxa entrega:
+R$ ${taxa.toFixed(2)}
+
+
+💰 Total:
+R$ ${totalPedido.toFixed(2)}
+
+
+💳 Pagamento:
+${pagamento}
+`;
 
 
 
-let numero="5587991532323";
+let numero =
+"5587991532323";
+
 
 
 let url =
@@ -248,14 +516,14 @@ let url =
 "?text="+encodeURIComponent(mensagem);
 
 
+
 window.location.href=url;
 
 
 }
 
-
 </script>
 
-
 </body>
+
 </html>
