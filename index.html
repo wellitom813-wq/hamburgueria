@@ -523,7 +523,6 @@ function adicionar(nome, preco){
 
     let produto = carrinho.find(item => item.nome === nome);
 
-
     if(produto){
 
         produto.quantidade++;
@@ -531,20 +530,16 @@ function adicionar(nome, preco){
     }else{
 
         carrinho.push({
-
             nome:nome,
             preco:preco,
             quantidade:1
-
         });
 
     }
 
-
     atualizarCarrinho();
 
 }
-
 
 
 function aumentar(index){
@@ -590,19 +585,17 @@ function remover(index){
 
 function atualizarCarrinho(){
 
-
 let lista = document.getElementById("listaCarrinho");
 
 let total = 0;
 
 
-lista.innerHTML = "";
-
+lista.innerHTML="";
 
 
 if(carrinho.length === 0){
 
-lista.innerHTML = "Seu carrinho está vazio";
+lista.innerHTML="Seu carrinho está vazio";
 
 }
 
@@ -613,31 +606,27 @@ carrinho.forEach((item,index)=>{
 
 let subtotal = item.preco * item.quantidade;
 
-
 total += subtotal;
-
 
 
 lista.innerHTML += `
 
-<div>
+<div style="margin-bottom:15px">
 
 <b>${item.nome}</b>
 
 <br>
 
-Quantidade: ${item.quantidade}
+R$ ${item.preco.toFixed(2)}
 
 <br>
-
-R$ ${subtotal.toFixed(2)}
-
-<br>
-
 
 <button onclick="diminuir(${index})">
 -
 </button>
+
+
+${item.quantidade}
 
 
 <button onclick="aumentar(${index})">
@@ -656,9 +645,7 @@ R$ ${subtotal.toFixed(2)}
 
 `;
 
-
 });
-
 
 
 document.getElementById("total").innerText =
