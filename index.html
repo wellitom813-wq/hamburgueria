@@ -128,7 +128,7 @@ header h1{
 <h2>🍔 Hambúrgueres</h2>
 
 
-<div class="produto">
+<div class="produto" id="xbacon">
 
 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
 
@@ -144,11 +144,15 @@ R$ 20,00
 Adicionar
 </button>
 
+<button onclick="retirarProduto('xbacon')">
+Retirar do cardápio
+</button>
+
 </div>
 
 
 
-<div class="produto">
+<div class="produto" id="xsalada">
 
 <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
 
@@ -164,6 +168,10 @@ R$ 18,00
 Adicionar
 </button>
 
+<button onclick="retirarProduto('xsalada')">
+Retirar do cardápio
+</button>
+
 </div>
 
 
@@ -171,7 +179,7 @@ Adicionar
 <h2>🍕 Pizzas</h2>
 
 
-<div class="produto">
+<div class="produto" id="pizza">
 
 <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
 
@@ -187,6 +195,10 @@ R$ 35,00
 Adicionar
 </button>
 
+<button onclick="retirarProduto('pizza')">
+Retirar do cardápio
+</button>
+
 </div>
 
 
@@ -194,7 +206,7 @@ Adicionar
 <h2>🥤 Bebidas</h2>
 
 
-<div class="produto">
+<div class="produto" id="coca">
 
 <img src="imagens/coca.jpg">
 
@@ -206,6 +218,10 @@ R$ 12,00
 
 <button onclick="adicionar('Coca-Cola 2L',12)">
 Adicionar
+</button>
+
+<button onclick="retirarProduto('coca')">
+Retirar do cardápio
 </button>
 
 </div>
@@ -528,6 +544,8 @@ window.location.href=url;
 }
 
 </script>
+
+<script src="estoque.js"></script>
 
 </body>
 
