@@ -517,10 +517,8 @@ Cartão
 
 
 
-<button onclick="finalizarPedido()">
-
+<button onclick="irParaFinalizar()">
 💬 Finalizar Pedido
-
 </button>
 
 
@@ -780,6 +778,17 @@ let url =
 
 window.location.href = url;
 
+
+}
+
+function irParaFinalizar(){
+
+localStorage.setItem(
+"carrinho",
+JSON.stringify(carrinho)
+);
+
+window.location.href="finalizar.html";
 
 }
 
