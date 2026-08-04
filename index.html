@@ -209,6 +209,30 @@ h2{
 
 }
 
+#statusLoja{
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+    padding:12px;
+    margin:10px;
+    border-radius:10px;
+}
+
+.aberta{
+    background:#28a745;
+}
+
+.fechada{
+    background:#dc3545;
+}
+
+button:disabled{
+    background:#999 !important;
+    cursor:not-allowed;
+    opacity:0.7;
+}
+
 </style>
 
 </head>
@@ -218,10 +242,14 @@ h2{
 
 
 <header>
+  
+  <header>
 
 <img src="imagens/banerrr.png" class="banner">
 
 </header>
+
+<div id="statusLoja"></div>
 
 
 <div class="abas">
@@ -769,6 +797,54 @@ window.location.href="finalizar.html";
 
 }
 
+function verificarLoja(){
+
+    let agora = new Date();
+
+    let hora = agora.getHours();
+
+    let status = document.getElementById("statusLoja");
+
+    let botoesAdicionar = document.querySelectorAll("button[onclick^='adicionar']");
+
+    let botaoFinalizar = document.querySelector("button[onclick='irParaFinalizar()']");
+
+    // HORÁRIO DE FUNCIONAMENTO
+    // Das 18:00 às 23:00
+
+    if(hora >= 18 && hora < 22){
+
+        status.innerHTML = "🟢 LOJA ABERTA - Faça seu pedido!";
+
+        status.className = "aberta";
+
+        botoesAdicionar.forEach(botao=>{
+            botao.disabled = false;
+        });
+
+        if(botaoFinalizar){
+            botaoFinalizar.disabled = false;
+        }
+
+    }else{
+
+        status.innerHTML = "🔴 LOJA FECHADA - Abrimos às 18:00";
+
+        status.className = "fechada";
+
+        botoesAdicionar.forEach(botao=>{
+            botao.disabled = true;
+        });
+
+        if(botaoFinalizar){
+            botaoFinalizar.disabled = true;
+        }
+
+    }
+
+}
+
+verificarLoja();
 
 </script>
 
