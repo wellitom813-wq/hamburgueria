@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Finalizar Pedido - Cantinho Pizza Burguer</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+}
+
+
+.container{
+
+    padding:15px;
+
+}
+
+
+
+h1{
+
+    text-align:center;
+    color:#e63946;
+
+}
+
+
+
+.card{
+
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px #ccc;
+
+}
+
+
+
+input, select{
+
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+
+}
+
+
+
+button{
+
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#25D366;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+
+}
+
+
+
+.item{
+
+    border-bottom:1px solid #ddd;
+    padding:10px 0;
+
+}
+
+
+.total{
+
+    font-size:20px;
+    font-weight:bold;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>🍔 Finalizar Pedido</h1>
+
+
+
+<div class="card">
+
+
+<h2>🛒 Seu Pedido</h2>
+
+
+<div id="pedido">
+
+Carregando pedido...
+
+</div>
+
+
+<p class="total">
+
+Total dos produtos:
+R$ <span id="total">0.00</span>
+
+</p>
+
+
+<p>
+
+🚚 Taxa de entrega:
+R$ 3,00
+
+</p>
+
+
+<p class="total">
+
+Total final:
+R$ <span id="totalFinal">0.00</span>
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>📍 Seus dados</h2>
+
+
+<input 
+id="nome"
+placeholder="Seu nome">
+
+
+<input 
+id="endereco"
+placeholder="Seu endereço">
+
+
+
+<h2>💳 Pagamento</h2>
+
+
+<select id="pagamento">
+
+
+<option>
+Pix
+</option>
+
+
+<option>
+Dinheiro
+</option>
+
+
+<option>
+Cartão
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<button onclick="enviarWhatsApp()">
+
+💬 Enviar Pedido
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let carrinho = 
+JSON.parse(localStorage.getItem("carrinho")) || [];
+
+
+
+let total = 0;
+
+
+
+function carregarPedido(){
+
+
+let lista = document.getElementById("pedido");
+
+
+lista.innerHTML="";
+
+
+
+carrinho.forEach(item=>{
+
+
+let subtotal =
+item.preco * item.quantidade;
+
+
+
+total += subtotal;
+
+
+
+lista.innerHTML += `
+
+<div class="item">
+
+<b>${item.nome}</b>
+
+<br>
+
+Quantidade: ${item.quantidade}
+
+<br>
+
+R$ ${subtotal.toFixed(2)}
+
+</div>
+
+`;
+
+
+
+});
+
+
+
+document.getElementById("total").innerText =
+total.toFixed(2);
+
+
+
+document.getElementById("totalFinal").innerText =
+(total + 3).toFixed(2);
+
+
+
+}
+
+
+
+function enviarWhatsApp(){
+
+
+
+let nome =
+document.getElementById("nome").value;
+
+
+
+let endereco =
+document.getElementById("endereco").value;
+
+
+
+let pagamento =
+document.getElementById("pagamento").value;
+
+
+
+let mensagem =
+
+`🍔 *PEDIDO - CANTINHO PIZZA BURGUER*
+
+👤 Cliente:
+${nome}
+
+
+📍 Endereço:
+${endereco}
+
+
+🛒 Pedido:
+`;
+
+
+
+carrinho.forEach(item=>{
+
+
+let subtotal =
+item.preco * item.quantidade;
+
+
+mensagem += `
+
+🍔 ${item.nome}
+
+Quantidade: ${item.quantidade}
+
+R$ ${subtotal.toFixed(2)}
+
+`;
+
+});
+
+
+
+mensagem += `
+
+🚚 Taxa entrega:
+R$ 3,00
+
+
+💰 Total:
+R$ ${(total+3).toFixed(2)}
+
+
+💳 Pagamento:
+${pagamento}
+
+`;
+
+
+
+let numero =
+"5587981670907";
+
+
+
+let url =
+"https://wa.me/"+numero+
+"?text="+encodeURIComponent(mensagem);
+
+
+
+window.location.href=url;
+
+
+}
+
+
+
+carregarPedido();
+
+
+
+</script>
+
+
+</body>
+
+</html>
