@@ -6,20 +6,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Minha Hamburgueria Delivery</title>
+<title>CANTINHO PIZZA BURGUER</title>
 
 <style>
+
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
     font-family:Arial, sans-serif;
     background:#f5f5f5;
+    padding-bottom:170px;
 }
 
+
 header{
-    background:#111;
-    padding:0;
+    width:100%;
 }
+
 
 .banner{
     width:100%;
@@ -28,75 +34,161 @@ header{
     display:block;
 }
 
-header h1{
-    margin:0;
-}
+
 
 .abas{
     display:flex;
     justify-content:center;
-    gap:10px;
-    padding:15px;
+    gap:8px;
+    padding:12px;
     background:white;
+    position:sticky;
+    top:0;
+    z-index:10;
 }
 
+
 .abas button{
-    padding:10px 15px;
     border:none;
+    padding:10px 15px;
     border-radius:20px;
     background:#e63946;
     color:white;
+    font-weight:bold;
 }
+
+
 
 .container{
     padding:15px;
 }
 
+
+
+h2{
+    color:#111;
+}
+
+
+
 .produto{
+
     background:white;
     border-radius:15px;
     padding:15px;
     margin-bottom:15px;
     box-shadow:0 2px 8px #ccc;
+
 }
 
+
+
 .produto img{
+
     width:100%;
     height:180px;
     object-fit:cover;
     border-radius:12px;
+
 }
+
+
 
 .produto h3{
-    margin-bottom:5px;
+
+    margin:10px 0 5px;
+
 }
+
+
 
 .preco{
-    font-size:18px;
+
+    font-size:20px;
     font-weight:bold;
+
 }
+
+
 
 .produto button{
+
     width:100%;
     padding:12px;
-    background:#25a244;
-    color:white;
     border:none;
     border-radius:10px;
+    background:#25a244;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+
 }
 
+
+
+
 .carrinho{
+
     background:white;
     margin:15px;
     padding:15px;
     border-radius:15px;
+
 }
 
 
-h2{
+
+#listaCarrinho button{
+
+    padding:5px 10px;
+    margin:3px;
+}
+
+
+
+.finalizar-box{
+
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:white;
+    padding:10px;
+    box-shadow:0 -3px 10px rgba(0,0,0,.25);
+    z-index:999;
+
+}
+
+
+
+.finalizar-box input,
+.finalizar-box select{
+
+    width:100%;
+    padding:8px;
+    margin-bottom:5px;
+    border-radius:8px;
+    border:1px solid #ccc;
+
+}
+
+
+
+.finalizar-box button{
+
+    width:100%;
+    padding:12px;
+    background:#25D366;
     color:white;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
     font-weight:bold;
+
 }
+
+
+
 </style>
 
 </head>
@@ -107,12 +199,9 @@ h2{
 
 <header>
 
-<header>
-
 <img src="imagens/banerrr.png" class="banner">
 
 </header>
-
 
 
 <div class="abas">
@@ -126,11 +215,9 @@ h2{
 </div>
 
 
-
 <div class="container">
-
-
-<div id="cardapio"></div>
+  
+  <!-- HAMBÚRGUERES -->
 
 <h2>🍔 Hambúrgueres</h2>
 
@@ -141,36 +228,34 @@ h2{
 
 <h3>X-Salada</h3>
 
-<p>Hambúrguer, bacon, queijo e molho especial</p>
+<p>Hambúrguer, queijo, salada e molho especial</p>
 
-<p class="preco">
-R$ 7,50
-</p>
+<p class="preco">R$ 7,50</p>
 
-<button onclick="adicionar('X-Bacon',7,50)">
+<button onclick="adicionar('X-Salada',7.50)">
 Adicionar
 </button>
 
 </div>
 
 
+
 <div class="produto">
 
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
 
 <h3>X-Burguer</h3>
 
-<p>Hambúrguer, bacon, queijo e molho especial</p>
+<p>Hambúrguer, queijo e molho especial</p>
 
-<p class="preco">
-R$ 11,00
-</p>
+<p class="preco">R$ 11,00</p>
 
 <button onclick="adicionar('X-Burguer',11)">
 Adicionar
 </button>
 
 </div>
+
 
 
 <div class="produto">
@@ -181,9 +266,7 @@ Adicionar
 
 <p>Hambúrguer, bacon, queijo e molho especial</p>
 
-<p class="preco">
-R$ 12,00
-</p>
+<p class="preco">R$ 12,00</p>
 
 <button onclick="adicionar('X-Bacon',12)">
 Adicionar
@@ -192,17 +275,16 @@ Adicionar
 </div>
 
 
+
 <div class="produto">
 
 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
 
 <h3>X-Tudo</h3>
 
-<p>Hambúrguer, bacon, queijo e molho especial</p>
+<p>Hambúrguer completo da casa</p>
 
-<p class="preco">
-R$ 15,00
-</p>
+<p class="preco">R$ 15,00</p>
 
 <button onclick="adicionar('X-Tudo',15)">
 Adicionar
@@ -211,43 +293,9 @@ Adicionar
 </div>
 
 
-<div class="produto">
-
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-
-<h3>X-Tudao</h3>
-
-<p>Hambúrguer, bacon, queijo e molho especial</p>
-
-<p class="preco">
-R$ 17,00
-</p>
-
-<button onclick="adicionar('X-Tudao',17)">
-Adicionar
-</button>
-
-</div>
 
 
-<div class="produto">
-
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-
-<h3>Moda da Casa</h3>
-
-<p>Hambúrguer, bacon, queijo e molho especial</p>
-
-<p class="preco">
-R$ 17,50
-</p>
-
-<button onclick="adicionar('Moda da Casa',17,50)">
-Adicionar
-</button>
-
-</div>
-
+<!-- PIZZAS -->
 
 <h2>🍕 Pizzas</h2>
 
@@ -258,69 +306,47 @@ Adicionar
 
 <h3>Pizza Muçarela</h3>
 
-<p>Molho,Muçarela,Tomate e Oregano</p>
+<p>Molho, muçarela, tomate e orégano</p>
 
-<p class="preco">
-R$ 38,00
-</p>
+<p class="preco">R$ 38,00</p>
+
+<button onclick="adicionar('Pizza Muçarela',38)">
+Adicionar
+</button>
+
+</div>
+
+
+
+<div class="produto">
+
+<img src="imagens/calabresa.jpg">
+
+<h3>Pizza Calabresa</h3>
+
+<p>Molho, calabresa, muçarela, cebola e orégano</p>
+
+<p class="preco">R$ 38,00</p>
 
 <button onclick="adicionar('Pizza Calabresa',38)">
 Adicionar
 </button>
 
 </div>
+
 
 
 <div class="produto">
 
 <img src="imagens/c14b5c05a9142554f99223478247c089.jpg">
 
-<h3>Pizza de Frango</h3>
+<h3>Pizza Frango com Catupiry</h3>
 
-<p>Molho,frango, muçarela ,catupiry e orégano</p>
+<p>Frango, muçarela, catupiry e orégano</p>
 
-<p class="preco">
-R$ 40,00
-</p>
+<p class="preco">R$ 40,00</p>
 
-<button onclick="adicionar('Pizza Calabresa',40)">
-Adicionar
-</button>
-
-</div>
-
-<div class="produto">
-
-<img src="imagens/calabresa.jpg">
-
-<h3>Pizza Calabresa 1</h3>
-
-<p>Molho,Mussarela,calabresa,Cebola e Oregano</p>
-
-<p class="preco">
-R$ 38,00
-</p>
-
-<button onclick="adicionar('Pizza Calabresa',38)">
-Adicionar
-</button>
-
-</div>
-
-
-<div class="produto">
-  
-  <img src="imagens/calabresa.jpg">
-
-<h3>Pizza Calabresa 2</h3>
-
-<p>Molho, calabresa e cebola e Oregano</p>
-
-<p class="preco">
-R$ 38,00
-</p>
-
-<button onclick="adicionar('Pizza Calabresa',38)">
+<button onclick="adicionar('Pizza Frango com Catupiry',40)">
 Adicionar
 </button>
 
@@ -329,23 +355,21 @@ Adicionar
 
 
 <div class="produto">
-  
-  
+
 <img src="imagens/mucarelacomcalabresa.jpg">
 
-<h3>Pizza Muçarela C/ Calabresa</h3>
+<h3>Pizza Muçarela com Calabresa</h3>
 
-<p>Molho, Mucarela, calabresa,cebola e orégano</p>
+<p>Muçarela, calabresa, cebola e orégano</p>
 
-<p class="preco">
-R$ 38,00
-</p>
+<p class="preco">R$ 38,00</p>
 
-<button onclick="adicionar('Pizza Calabresa',38)">
+<button onclick="adicionar('Pizza Muçarela com Calabresa',38)">
 Adicionar
 </button>
 
 </div>
+
 
 
 <div class="produto">
@@ -354,17 +378,16 @@ Adicionar
 
 <h3>Pizza Portuguesa</h3>
 
-<p>Molho, Presunto, muçarela,ovo,tomate,milho e orégano</p>
+<p>Presunto, muçarela, ovo, milho, tomate e orégano</p>
 
-<p class="preco">
-R$ 40,00
-</p>
+<p class="preco">R$ 40,00</p>
 
-<button onclick="adicionar('Pizza Calabresa',40)">
+<button onclick="adicionar('Pizza Portuguesa',40)">
 Adicionar
 </button>
 
 </div>
+
 
 
 <div class="produto">
@@ -373,17 +396,16 @@ Adicionar
 
 <h3>Pizza Baiana</h3>
 
-<p>Molho, muçarela, calabresa, cebola,pimenta calabresa e orégano</p>
+<p>Calabresa, cebola, pimenta e orégano</p>
 
-<p class="preco">
-R$ 38,00
-</p>
+<p class="preco">R$ 38,00</p>
 
-<button onclick="adicionar('Pizza Calabresa',38)">
+<button onclick="adicionar('Pizza Baiana',38)">
 Adicionar
 </button>
 
 </div>
+
 
 
 <div class="produto">
@@ -392,19 +414,22 @@ Adicionar
 
 <h3>Pizza de Milho</h3>
 
-<p>Muçarela ,milho,tomate e orégano</p>
+<p>Muçarela, milho, tomate e orégano</p>
 
-<p class="preco">
-R$ 38,00
-</p>
+<p class="preco">R$ 38,00</p>
 
-<button onclick="adicionar('Pizza Calabresa',38)">
+<button onclick="adicionar('Pizza de Milho',38)">
 Adicionar
 </button>
 
 </div>
 
+
+
+<!-- BEBIDAS -->
+
 <h2>🥤 Bebidas</h2>
+
 
 
 <div class="produto">
@@ -413,9 +438,7 @@ Adicionar
 
 <h3>Coca-Cola 2L</h3>
 
-<p class="preco">
-R$ 12,00
-</p>
+<p class="preco">R$ 12,00</p>
 
 <button onclick="adicionar('Coca-Cola 2L',12)">
 Adicionar
@@ -424,15 +447,14 @@ Adicionar
 </div>
 
 
+
 <div class="produto">
 
 <img src="imagens/coca.jpg">
 
 <h3>Coca-Cola 2,5L</h3>
 
-<p class="preco">
-R$ 15,00
-</p>
+<p class="preco">R$ 15,00</p>
 
 <button onclick="adicionar('Coca-Cola 2,5L',15)">
 Adicionar
@@ -443,10 +465,12 @@ Adicionar
 </div>
 
 
+<!-- CARRINHO -->
 
 <div class="carrinho">
 
 <h2>🛒 Carrinho</h2>
+
 
 <div id="listaCarrinho">
 
@@ -456,30 +480,23 @@ Seu carrinho está vazio
 
 
 <h3>
-
-Total:
-R$ <span id="total">0.00</span>
-
+Total: R$ <span id="total">0.00</span>
 </h3>
-<div class="carrinho">
 
-<h2>📍 Dados do pedido</h2>
+
+</div>
+
+
+
+<!-- FINALIZAR PEDIDO FLUTUANTE -->
+
+<div class="finalizar-box">
+
 
 <input id="nomeCliente" placeholder="Seu nome">
 
-<br><br>
 
 <input id="enderecoCliente" placeholder="Seu endereço">
-
-<br><br>
-
-
-<h3>🚚 Forma de entrega</h3>
-
-<p>Taxa de entrega: R$ 3,00</p>
-
-
-<h3>💳 Forma de pagamento</h3>
 
 
 <select id="pagamento">
@@ -488,21 +505,16 @@ R$ <span id="total">0.00</span>
 Pix
 </option>
 
-
 <option value="Dinheiro">
 Dinheiro
 </option>
-
 
 <option value="Cartão">
 Cartão
 </option>
 
-
 </select>
 
-
-<br><br>
 
 
 <button onclick="finalizarPedido()">
@@ -528,7 +540,7 @@ function adicionar(nome, preco){
 
         produto.quantidade++;
 
-    } else {
+    }else{
 
         carrinho.push({
 
@@ -557,6 +569,7 @@ function aumentar(index){
 
 
 
+
 function diminuir(index){
 
     carrinho[index].quantidade--;
@@ -575,6 +588,7 @@ function diminuir(index){
 
 
 
+
 function remover(index){
 
     carrinho.splice(index,1);
@@ -582,6 +596,7 @@ function remover(index){
     atualizarCarrinho();
 
 }
+
 
 
 
@@ -596,9 +611,10 @@ let total = 0;
 lista.innerHTML = "";
 
 
+
 if(carrinho.length === 0){
 
-    lista.innerHTML = "Seu carrinho está vazio";
+lista.innerHTML = "Seu carrinho está vazio";
 
 }
 
@@ -607,21 +623,26 @@ if(carrinho.length === 0){
 carrinho.forEach((item,index)=>{
 
 
-total += item.preco * item.quantidade;
+let subtotal = item.preco * item.quantidade;
+
+
+total += subtotal;
+
 
 
 lista.innerHTML += `
 
-
-<div style="margin-bottom:15px">
-
+<div>
 
 <b>${item.nome}</b>
 
 <br>
 
-R$ ${item.preco.toFixed(2)}
+Quantidade: ${item.quantidade}
 
+<br>
+
+R$ ${subtotal.toFixed(2)}
 
 <br>
 
@@ -629,9 +650,6 @@ R$ ${item.preco.toFixed(2)}
 <button onclick="diminuir(${index})">
 -
 </button>
-
-
-${item.quantidade}
 
 
 <button onclick="aumentar(${index})">
@@ -646,6 +664,7 @@ ${item.quantidade}
 
 </div>
 
+<hr>
 
 `;
 
@@ -653,12 +672,15 @@ ${item.quantidade}
 });
 
 
+
 document.getElementById("total").innerText =
 total.toFixed(2);
 
 
-
 }
+
+
+
 
 function finalizarPedido(){
 
@@ -682,8 +704,10 @@ let taxa = 3;
 let totalPedido = 0;
 
 
+
 let mensagem =
-`🍔 *Pedido - CANTINHO PIZZA BURGUER*
+
+`🍔 *PEDIDO - CANTINHO PIZZA BURGUER*
 
 👤 Cliente:
 ${nome}
@@ -708,11 +732,14 @@ item.preco * item.quantidade;
 totalPedido += subtotal;
 
 
-mensagem +=
-`
+mensagem += `
+
 🍔 ${item.nome}
+
 Quantidade: ${item.quantidade}
+
 R$ ${subtotal.toFixed(2)}
+
 `;
 
 });
@@ -723,11 +750,10 @@ totalPedido += taxa;
 
 
 
-mensagem +=
-`
+mensagem += `
 
 🚚 Taxa entrega:
-R$ ${taxa}
+R$ ${taxa.toFixed(2)}
 
 
 💰 Total:
@@ -736,6 +762,7 @@ R$ ${totalPedido.toFixed(2)}
 
 💳 Pagamento:
 ${pagamento}
+
 `;
 
 
@@ -751,14 +778,14 @@ let url =
 
 
 
-window.location.href=url;
+window.location.href = url;
 
 
 }
 
+
 </script>
 
-<script src="estoque.js"></script>
 
 </body>
 
