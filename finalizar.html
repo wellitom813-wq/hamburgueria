@@ -321,56 +321,61 @@ document.getElementById("pagamento").value;
 
 let mensagem =
 
-`🍔 *PEDIDO - CANTINHO PIZZA BURGUER*
+`================================
 
-👤 Cliente:
+CANTINHO PIZZA BURGUER
+
+================================
+
+NOVO PEDIDO
+
+Cliente:
 ${nome}
 
-
-📍 Endereço:
+Endereço:
 ${endereco}
 
+--------------------------------
 
-🛒 Pedido:
+ITENS DO PEDIDO
+
+--------------------------------
+
 `;
 
-
-
 carrinho.forEach(item=>{
-
 
 let subtotal =
 item.preco * item.quantidade;
 
+mensagem +=
 
-mensagem += `
-
-🍔 ${item.nome}
+`${item.nome}
 
 Quantidade: ${item.quantidade}
 
-R$ ${subtotal.toFixed(2)}
+Valor: R$ ${subtotal.toFixed(2)}
 
 `;
 
 });
 
+mensagem +=
 
+`--------------------------------
 
-mensagem += `
+Taxa de entrega: R$ 3,00
 
-🚚 Taxa entrega:
-R$ 3,00
+TOTAL: R$ ${(total+3).toFixed(2)}
 
-
-💰 Total:
-R$ ${(total+3).toFixed(2)}
-
-
-💳 Pagamento:
+Pagamento:
 ${pagamento}
 
-`;
+================================
+
+Obrigado pela preferência!
+
+================================`;
 
 
 
