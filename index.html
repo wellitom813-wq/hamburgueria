@@ -187,7 +187,27 @@ h2{
 
 }
 
+.botao-finalizar{
+    position:fixed;
+    bottom:10px;
+    left:10px;
+    right:10px;
+    z-index:999;
+}
 
+
+.botao-finalizar button{
+
+    width:100%;
+    padding:14px;
+    background:#25D366;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+
+}
 
 </style>
 
@@ -486,14 +506,13 @@ Total: R$ <span id="total">0.00</span>
 
 </div>
 
-
-
-<!-- FINALIZAR PEDIDO FLUTUANTE -->
-
+<div class="botao-finalizar">
 
 <button onclick="irParaFinalizar()">
 💬 Finalizar Pedido
 </button>
+
+</div>
 
 <script>
 
