@@ -1,0 +1,61 @@
+let estoque = {
+    xbacon: true,
+    xsalada: true,
+    pizza: true,
+    coca: true
+};
+
+
+function carregarEstoque(){
+
+    let salvo = localStorage.getItem("estoque");
+
+    if(salvo){
+        estoque = JSON.parse(salvo);
+    }
+
+}
+
+
+function verificarEstoque(){
+
+    carregarEstoque();
+
+    for(let produto in estoque){
+
+        let item = document.getElementById(produto);
+
+        if(item){
+
+            if(estoque[produto] === false){
+
+                item.style.display = "none";
+
+            } else {
+
+                item.style.display = "block";
+
+            }
+
+        }
+
+    }
+
+}
+
+
+function alterarEstoque(produto){
+
+    carregarEstoque();
+
+    estoque[produto] = !estoque[produto];
+
+    localStorage.setItem(
+        "estoque",
+        JSON.stringify(estoque)
+    );
+
+}
+
+
+window.addEventListener("load", verificarEstoque);
