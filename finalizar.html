@@ -297,7 +297,22 @@ document.getElementById("nome").value;
 let endereco =
 document.getElementById("endereco").value;
 
+if(nome.trim() === ""){
 
+alert("Digite seu nome");
+
+return;
+
+}
+
+
+if(endereco.trim() === ""){
+
+alert("Digite seu endereço");
+
+return;
+
+}
 
 let pagamento =
 document.getElementById("pagamento").value;
