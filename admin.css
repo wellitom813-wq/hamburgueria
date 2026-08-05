@@ -1,1 +1,182 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
 
+body{
+    background:#f5f5f5;
+}
+
+.login{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#111;
+}
+
+.login-box{
+    width:350px;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.login-box h1{
+    margin-bottom:25px;
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.login-box button{
+    width:100%;
+    padding:12px;
+    background:#ff9800;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.login-box button:hover{
+    background:#e68900;
+}
+
+#erroLogin{
+    color:red;
+    margin-top:10px;
+}
+
+header{
+    background:#111;
+    color:#fff;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header button{
+    background:#e53935;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.cadastro{
+    background:#fff;
+    margin:20px;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.cadastro h2{
+    margin-bottom:20px;
+}
+
+.cadastro input,
+.cadastro textarea,
+.cadastro select{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.cadastro textarea{
+    resize:vertical;
+    min-height:90px;
+}
+
+.cadastro label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.cadastro button{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:14px;
+    width:100%;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.cadastro button:hover{
+    background:#15803d;
+}
+
+#listaProdutos{
+    margin:20px;
+}
+
+.produto{
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.produto h3{
+    margin-bottom:8px;
+}
+
+.produto p{
+    margin:4px 0;
+}
+
+.botoes{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+}
+
+.botoes button{
+    flex:1;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+    color:#fff;
+    font-weight:bold;
+}
+
+.editar{
+    background:#2563eb;
+}
+
+.excluir{
+    background:#dc2626;
+}
+
+.esgotado{
+    color:#dc2626;
+    font-weight:bold;
+}
