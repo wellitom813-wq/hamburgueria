@@ -357,26 +357,23 @@ document.getElementById("valorTotal").innerHTML =
 }
 
 
-function enviarPedido(){
-
-
-    function verificarFuncionamento() {
+function verificarFuncionamento() {
     const agora = new Date();
     const hora = agora.getHours();
 
-    if (hora >= 07 && hora < 22) {
+    if (hora >= 7 && hora < 22) {
         return true;
     }
 
     return false;
+}
+
+function enviarPedido() {
+
+    if (!verificarFuncionamento()) {
+        alert("🔴 Estamos fechados!\n\nHorário de funcionamento: 07:00 às 22:00.");
+        return;
     }
-
-
-
-
-function enviarPedido(){
-
-
 
 let nome=document.getElementById("nome").value;
 
