@@ -958,31 +958,32 @@ Continuar Comprando
     right: 20px;
     bottom: 120px;
 
-    width: 65px;
-    height: 65px;
-
     background: #16a34a;
     color: #fff;
 
-    border-radius: 50%;
+    padding: 10px 14px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-radius: 40px;
 
     cursor: pointer;
+
     box-shadow: 0 5px 20px rgba(0,0,0,.3);
+
     z-index: 9999;
+
     transition: .3s;
 
-    font-size: 13px;
+    min-width: 165px;
+
+    text-align: center;
+
+    font-size: 14px;
+
     font-weight: bold;
 }
 
-
 .carrinho-flutuante:hover{
-transform:scale(1.05);
+    transform: scale(1.05);
 }
 
 #contadorCarrinho{
@@ -1318,14 +1319,6 @@ function atualizarCarrinho(){
 
     document.getElementById("resumoCarrinho").innerHTML =
         quantidadeTotal + " itens • R$ " + total.toFixed(2);
-  
-        let carrinhoFlutuante = document.getElementById("carrinhoFlutuante");
-
-if (quantidadeTotal > 0) {
-    carrinhoFlutuante.style.display = "block";
-} else {
-    carrinhoFlutuante.style.display = "none";
-}
 
 }
 
