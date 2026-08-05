@@ -930,19 +930,20 @@ Continuar Comprando
 =========================== */
 
 .carrinho-flutuante{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#16a34a;
-color:#fff;
-padding:15px 20px;
-border-radius:50px;
-cursor:pointer;
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-z-index:9999;
-transition:.3s;
-min-width:190px;
-text-align:center;
+    position: fixed;
+    right: 20px;
+    bottom: 80px;      /* antes era 20px */
+    background: #16a34a;
+    color: #fff;
+    padding: 10px 14px; /* antes era 15px 20px */
+    border-radius: 40px; /* antes era 50px */
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,.3);
+    z-index: 9999;
+    transition: .3s;
+    min-width: 160px;   /* antes era 190px */
+    text-align: center;
+    font-size: 14px;    /* deixa o texto um pouco menor */
 }
 
 .carrinho-flutuante:hover{
@@ -1148,6 +1149,11 @@ margin-top:10px;
 
 cursor:pointer;
 
+}
+
+html, body{
+    width: 100%;
+    overflow-x: hidden;
 }
 
 </style>
