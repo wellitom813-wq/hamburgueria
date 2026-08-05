@@ -219,7 +219,9 @@ R$ 0,00
 
 </div>
 
-
+<p style="text-align:center;color:#16a34a;font-weight:bold;margin:15px 0;">
+⏱️ Tempo estimado de entrega: 40 a 60 minutos.
+</p>
 
 <button onclick="enviarPedido()">
 
@@ -359,6 +361,18 @@ document.getElementById("valorTotal").innerHTML =
 
 
 function enviarPedido(){
+
+
+    function verificarFuncionamento() {
+    const agora = new Date();
+    const hora = agora.getHours();
+
+    if (hora >= 18 && hora < 22) {
+        return true;
+    }
+
+    return false;
+    }
 
 
 
