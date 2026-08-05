@@ -885,15 +885,9 @@ Pimenta e Oregano.</p>
 
 <div id="carrinhoFlutuante" class="carrinho-flutuante" onclick="abrirCarrinho()">
 
-<div style="font-size:22px;">🛒</div>
+    <div style="font-size:28px;">🛒</div>
 
-<div id="resumoCarrinho">
-
-0 itens • R$ 0,00
-
-</div>
-
-<span id="contadorCarrinho">0</span>
+    <span id="contadorCarrinho">0</span>
 
 </div>
 
@@ -960,20 +954,30 @@ Continuar Comprando
 .carrinho-flutuante{
     position: fixed;
     right: 20px;
-    bottom: 120px;      /* antes era 20px */
+    bottom: 120px;
+
+    width: 65px;
+    height: 65px;
+
     background: #16a34a;
     color: #fff;
-    padding: 10px 14px; /* antes era 15px 20px */
-    border-radius: 40px; /* antes era 50px */
+
+    border-radius: 50%;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     cursor: pointer;
     box-shadow: 0 5px 20px rgba(0,0,0,.3);
     z-index: 9999;
     transition: .3s;
-    min-width: 160px;   /* antes era 190px */
-    text-align: center;
-    font-size: 14px;    /* deixa o texto um pouco menor */
-    display: none;
+
+    font-size: 13px;
+    font-weight: bold;
 }
+
 
 .carrinho-flutuante:hover{
 transform:scale(1.05);
