@@ -882,7 +882,6 @@ Pimenta e Oregano.</p>
 
 
 <!-- ================== CARRINHO FLUTUANTE ================== -->
-
 <div id="carrinhoFlutuante" class="carrinho-flutuante" onclick="abrirCarrinho()">
 
 🛒 Ver Carrinho
@@ -890,6 +889,8 @@ Pimenta e Oregano.</p>
 <span id="resumoCarrinho">
 0 itens • R$ 0,00
 </span>
+
+<span id="contadorCarrinho" style="display:none;">0</span>
 
 </div>
 
@@ -1201,6 +1202,7 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 
 function adicionar(nome, preco){
+
 
     let produto = carrinho.find(item => item.nome === nome);
 
