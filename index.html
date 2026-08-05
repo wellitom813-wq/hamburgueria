@@ -11,239 +11,173 @@
 <style>
 
 *{
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f5f5f5;
-    padding-bottom:170px;
+background:#f5f5f5;
+padding-bottom:120px;
 }
 
-
-header{
-    width:100%;
-}
-
-
-.banner{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    display:block;
-}
-
-
-
-.abas{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    padding:12px;
-    background:white;
-    position:sticky;
-    top:0;
-    z-index:10;
-}
-
-
-.abas button{
-    border:none;
-    padding:10px 15px;
-    border-radius:20px;
-    background:#e63946;
-    color:white;
-    font-weight:bold;
-}
-
-
-
-.container{
-    padding:15px;
-}
-
-
-
-h2{
-    color:#111;
-}
-
-
-
-.produto{
-
-    background:white;
-    border-radius:15px;
-    padding:15px;
-    margin-bottom:15px;
-    box-shadow:0 2px 8px #ccc;
-
-}
-
-
-
-.produto img{
-
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:12px;
-
-}
-
-
-
-.produto h3{
-
-    margin:10px 0 5px;
-
-}
-
-
-
-.preco{
-
-    font-size:20px;
-    font-weight:bold;
-
-}
-
-
-
-.produto button{
-
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    background:#25a244;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-
-}
-
-
-
-
-.carrinho{
-
-    background:white;
-    margin:15px;
-    padding:15px;
-    border-radius:15px;
-
-}
-
-
-
-#listaCarrinho button{
-
-    padding:5px 10px;
-    margin:3px;
-}
-
-
-
-.finalizar-box{
-
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:white;
-    padding:10px;
-    box-shadow:0 -3px 10px rgba(0,0,0,.25);
-    z-index:999;
-
-}
-
-
-
-.finalizar-box input,
-.finalizar-box select{
-
-    width:100%;
-    padding:8px;
-    margin-bottom:5px;
-    border-radius:8px;
-    border:1px solid #ccc;
-
-}
-
-
-
-.finalizar-box button{
-
-    width:100%;
-    padding:12px;
-    background:#25D366;
-    color:white;
-    border:none;
-    border-radius:10px;
-    font-size:17px;
-    font-weight:bold;
-
-}
-
-.botao-finalizar{
-    position:fixed;
-    bottom:10px;
-    left:10px;
-    right:10px;
-    z-index:999;
-}
-
-
-.botao-finalizar button{
-
-    width:100%;
-    padding:14px;
-    background:#25D366;
-    color:white;
-    border:none;
-    border-radius:12px;
-    font-size:18px;
-    font-weight:bold;
-
+header img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
 }
 
 #statusLoja{
-    text-align:center;
-    font-size:18px;
-    font-weight:bold;
-    color:white;
-    padding:12px;
-    margin:10px;
-    border-radius:10px;
+margin:10px;
+padding:12px;
+text-align:center;
+font-weight:bold;
+border-radius:10px;
+color:#fff;
+font-size:18px;
 }
 
 .aberta{
-    background:#28a745;
+background:#28a745;
 }
 
 .fechada{
-    background:#dc3545;
+background:#dc3545;
 }
 
-button:disabled{
-    background:#999 !important;
-    cursor:not-allowed;
-    opacity:0.7;
+.abas{
+display:flex;
+justify-content:center;
+gap:10px;
+padding:10px;
+background:#fff;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.abas button{
+background:#d62828;
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:25px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.container{
+padding:15px;
+}
+
+.tituloCategoria{
+font-size:26px;
+margin:20px 0 10px;
+color:#222;
+}
+
+.produto{
+background:#fff;
+border-radius:15px;
+overflow:hidden;
+margin-bottom:18px;
+box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.produto img{
+width:100%;
+height:190px;
+object-fit:cover;
+}
+
+.produtoInfo{
+padding:15px;
+}
+
+.produto h3{
+margin-bottom:8px;
+}
+
+.preco{
+font-size:22px;
+font-weight:bold;
+color:#d62828;
+margin:10px 0;
+}
+
+.controles{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+margin-top:10px;
+}
+
+.controles button{
+width:40px;
+height:40px;
+border:none;
+border-radius:50%;
+font-size:22px;
+font-weight:bold;
+background:#25D366;
+color:#fff;
+cursor:pointer;
+}
+
+.quantidade{
+font-size:20px;
+font-weight:bold;
+min-width:25px;
+text-align:center;
+}
+
+.carrinho{
+background:#fff;
+margin:15px;
+padding:15px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+#listaCarrinho hr{
+margin:10px 0;
+}
+
+.carrinho-flutuante{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#25D366;
+color:#fff;
+padding:15px 22px;
+border-radius:40px;
+font-weight:bold;
+font-size:18px;
+display:none;
+box-shadow:0 5px 15px rgba(0,0,0,.35);
+cursor:pointer;
+z-index:9999;
+text-align:center;
+}
+
+.carrinho-flutuante span{
+display:block;
+font-size:14px;
+margin-top:4px;
 }
 
 </style>
 
 </head>
 
-
 <body>
 
-
 <header>
-  
-  <header>
 
 <img src="imagens/banerrr.png" class="banner">
 
@@ -251,360 +185,928 @@ button:disabled{
 
 <div id="statusLoja"></div>
 
-
 <div class="abas">
 
 <button>🍔 Hambúrguer</button>
 
-<button>🍕 Pizza</button>
+<button>🍕 Pizzas</button>
 
 <button>🥤 Bebidas</button>
 
 </div>
 
-
 <div class="container">
   
-  <!-- HAMBÚRGUERES -->
-
-<h2>🍔 Hambúrgueres</h2>
-
+  <h2 class="tituloCategoria">🍔 Hambúrgueres</h2>
 
 <div class="produto">
 
 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
 
+<div class="produtoInfo">
+
 <h3>X-Salada</h3>
 
-<p>Hambúrguer, queijo, salada e molho especial</p>
+<p>Hambúrguer, queijo, salada e molho especial.</p>
 
 <p class="preco">R$ 7,50</p>
 
-<button onclick="adicionar('X-Salada',7.50)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('X-Salada')">−</button>
+
+<span id="qtd-X-Salada" class="quantidade">0</span>
+
+<button onclick="adicionar('X-Salada',7.50)">+</button>
 
 </div>
 
+</div>
 
+</div>
 
 <div class="produto">
 
 <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
 
+<div class="produtoInfo">
+
 <h3>X-Burguer</h3>
 
-<p>Hambúrguer, queijo e molho especial</p>
+<p>Hambúrguer e queijo.</p>
 
 <p class="preco">R$ 11,00</p>
 
-<button onclick="adicionar('X-Burguer',11)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('X-Burguer')">−</button>
+
+<span id="qtd-X-Burguer" class="quantidade">0</span>
+
+<button onclick="adicionar('X-Burguer',11)">+</button>
 
 </div>
 
+</div>
 
+</div>
 
 <div class="produto">
 
 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+
+<div class="produtoInfo">
 
 <h3>X-Bacon</h3>
 
-<p>Hambúrguer, bacon, queijo e molho especial</p>
+<p>Hambúrguer, bacon e queijo.</p>
 
 <p class="preco">R$ 12,00</p>
 
-<button onclick="adicionar('X-Bacon',12)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('X-Bacon')">−</button>
+
+<span id="qtd-X-Bacon" class="quantidade">0</span>
+
+<button onclick="adicionar('X-Bacon',12)">+</button>
 
 </div>
 
+</div>
 
+</div>
 
 <div class="produto">
 
 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
 
+<div class="produtoInfo">
+
 <h3>X-Tudo</h3>
 
-<p>Hambúrguer completo da casa</p>
+<p>Hambúrguer completo da casa.</p>
 
 <p class="preco">R$ 15,00</p>
 
-<button onclick="adicionar('X-Tudo',15)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('X-Tudo')">−</button>
+
+<span id="qtd-X-Tudo" class="quantidade">0</span>
+
+<button onclick="adicionar('X-Tudo',15)">+</button>
 
 </div>
 
+</div>
 
+</div>
 
+<div class="produto">
 
-<!-- PIZZAS -->
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
 
-<h2>🍕 Pizzas</h2>
+<div class="produtoInfo">
 
+<h3>Moda da Casa</h3>
+
+<p>Hambúrguer especial da casa.</p>
+
+<p class="preco">R$ 17,50</p>
+
+<div class="controles">
+
+<button onclick="diminuirProduto('Moda da Casa')">−</button>
+
+<span id="qtd-Moda da Casa" class="quantidade">0</span>
+
+<button onclick="adicionar('Moda da Casa',17.50)">+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<h2 class="tituloCategoria">🍕 Pizzas</h2>
 
 <div class="produto">
 
 <img src="imagens/mussarela.jpg">
 
+<div class="produtoInfo">
+
 <h3>Pizza Muçarela</h3>
 
-<p>Molho, muçarela, tomate e orégano</p>
+<p>Molho, muçarela, tomate e orégano.</p>
 
 <p class="preco">R$ 38,00</p>
 
-<button onclick="adicionar('Pizza Muçarela',38)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Pizza Muçarela')">−</button>
+
+<span id="qtd-Pizza Muçarela" class="quantidade">0</span>
+
+<button onclick="adicionar('Pizza Muçarela',38)">+</button>
 
 </div>
 
+</div>
+
+</div>
 
 
 <div class="produto">
 
 <img src="imagens/calabresa.jpg">
 
+<div class="produtoInfo">
+
 <h3>Pizza Calabresa</h3>
 
-<p>Molho, calabresa, muçarela, cebola e orégano</p>
+<p>Molho, calabresa, muçarela, cebola e orégano.</p>
 
 <p class="preco">R$ 38,00</p>
 
-<button onclick="adicionar('Pizza Calabresa',38)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Pizza Calabresa')">−</button>
+
+<span id="qtd-Pizza Calabresa" class="quantidade">0</span>
+
+<button onclick="adicionar('Pizza Calabresa',38)">+</button>
 
 </div>
 
+</div>
+
+</div>
 
 
 <div class="produto">
 
 <img src="imagens/c14b5c05a9142554f99223478247c089.jpg">
 
+<div class="produtoInfo">
+
 <h3>Pizza Frango com Catupiry</h3>
 
-<p>Frango, muçarela, catupiry e orégano</p>
+<p>Frango, muçarela, catupiry e orégano.</p>
 
 <p class="preco">R$ 40,00</p>
 
-<button onclick="adicionar('Pizza Frango com Catupiry',40)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Pizza Frango com Catupiry')">−</button>
+
+<span id="qtd-Pizza Frango com Catupiry" class="quantidade">0</span>
+
+<button onclick="adicionar('Pizza Frango com Catupiry',40)">+</button>
 
 </div>
 
+</div>
+
+</div>
 
 
 <div class="produto">
 
 <img src="imagens/mucarelacomcalabresa.jpg">
 
+<div class="produtoInfo">
+
 <h3>Pizza Muçarela com Calabresa</h3>
 
-<p>Muçarela, calabresa, cebola e orégano</p>
+<p>Muçarela, calabresa, cebola e orégano.</p>
 
 <p class="preco">R$ 38,00</p>
 
-<button onclick="adicionar('Pizza Muçarela com Calabresa',38)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Pizza Muçarela com Calabresa')">−</button>
+
+<span id="qtd-Pizza Muçarela com Calabresa" class="quantidade">0</span>
+
+<button onclick="adicionar('Pizza Muçarela com Calabresa',38)">+</button>
 
 </div>
 
+</div>
+
+</div>
 
 
 <div class="produto">
 
 <img src="imagens/portuguesa.png">
 
+<div class="produtoInfo">
+
 <h3>Pizza Portuguesa</h3>
 
-<p>Presunto, muçarela, ovo, milho, tomate e orégano</p>
+<p>Presunto, muçarela, ovo, milho, tomate e orégano.</p>
 
 <p class="preco">R$ 40,00</p>
 
-<button onclick="adicionar('Pizza Portuguesa',40)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Pizza Portuguesa')">−</button>
+
+<span id="qtd-Pizza Portuguesa" class="quantidade">0</span>
+
+<button onclick="adicionar('Pizza Portuguesa',40)">+</button>
 
 </div>
 
+</div>
+
+</div>
 
 
 <div class="produto">
 
 <img src="imagens/baiana.jpg">
 
+<div class="produtoInfo">
+
 <h3>Pizza Baiana</h3>
 
-<p>Calabresa, cebola, pimenta e orégano</p>
+<p>Calabresa, cebola, pimenta e orégano.</p>
 
 <p class="preco">R$ 38,00</p>
 
-<button onclick="adicionar('Pizza Baiana',38)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Pizza Baiana')">−</button>
+
+<span id="qtd-Pizza Baiana" class="quantidade">0</span>
+
+<button onclick="adicionar('Pizza Baiana',38)">+</button>
 
 </div>
 
+</div>
+
+</div>
 
 
 <div class="produto">
 
 <img src="imagens/milho.jpg">
 
+<div class="produtoInfo">
+
 <h3>Pizza de Milho</h3>
 
-<p>Muçarela, milho, tomate e orégano</p>
+<p>Muçarela, milho, tomate e orégano.</p>
 
 <p class="preco">R$ 38,00</p>
 
-<button onclick="adicionar('Pizza de Milho',38)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Pizza de Milho')">−</button>
+
+<span id="qtd-Pizza de Milho" class="quantidade">0</span>
+
+<button onclick="adicionar('Pizza de Milho',38)">+</button>
+
+</div>
+
+</div>
 
 </div>
 
 
-
-<!-- BEBIDAS -->
-
-<h2>🥤 Bebidas</h2>
-
+<h2 class="tituloCategoria">🥤 Bebidas</h2>
 
 
 <div class="produto">
 
 <img src="imagens/coca.jpg">
+
+<div class="produtoInfo">
 
 <h3>Coca-Cola 2L</h3>
 
 <p class="preco">R$ 12,00</p>
 
-<button onclick="adicionar('Coca-Cola 2L',12)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Coca-Cola 2L')">−</button>
+
+<span id="qtd-Coca-Cola 2L" class="quantidade">0</span>
+
+<button onclick="adicionar('Coca-Cola 2L',12)">+</button>
 
 </div>
 
+</div>
+
+</div>
 
 
 <div class="produto">
 
 <img src="imagens/coca.jpg">
 
+<div class="produtoInfo">
+
 <h3>Coca-Cola 2,5L</h3>
 
 <p class="preco">R$ 15,00</p>
 
-<button onclick="adicionar('Coca-Cola 2,5L',15)">
-Adicionar
-</button>
+<div class="controles">
+
+<button onclick="diminuirProduto('Coca-Cola 2,5L')">−</button>
+
+<span id="qtd-Coca-Cola 2,5L" class="quantidade">0</span>
+
+<button onclick="adicionar('Coca-Cola 2,5L',15)">+</button>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- CARRINHO -->
+<!-- CARRINHO FLUTUANTE NOVO -->
 
-<div class="carrinho">
+<div id="carrinhoFlutuante" class="carrinho-flutuante" onclick="abrirCarrinho()">
 
-<h2>🛒 Carrinho</h2>
+🛒 Ver Carrinho
+
+<span id="contadorCarrinho">
+0
+</span>
+
+<span id="resumoCarrinho">
+0 itens • R$ 0,00
+</span>
+
+</div>
+
+
+
+<!-- AVISO DE PRODUTO -->
+
+<div id="avisoCarrinho">
+
+</div>
+
+
+
+<!-- MODAL DO CARRINHO -->
+
+<div id="modalCarrinho" class="modal-carrinho">
+
+
+<div class="carrinho-box">
+
+
+<h2>🛒 Meu Pedido</h2>
 
 
 <div id="listaCarrinho">
 
-Seu carrinho está vazio
+<p>Seu carrinho está vazio.</p>
 
 </div>
 
 
-<h3>
-Total: R$ <span id="total">0.00</span>
-</h3>
+
+<div class="totalCarrinho">
+
+Total:
+
+<strong id="totalCarrinho">
+
+R$ 0,00
+
+</strong>
 
 
 </div>
 
-<div class="botao-finalizar">
 
-<button onclick="irParaFinalizar()">
-💬 Finalizar Pedido
+
+<button class="btnFinalizar" onclick="irParaFinalizar()">
+
+Finalizar Pedido
+
 </button>
 
+
+
+<button class="btnFechar" onclick="fecharCarrinho()">
+
+Continuar Comprando
+
+</button>
+
+
+
 </div>
+
+
+</div>
+
+
+
+
+<style>
+
+
+.carrinho-flutuante{
+
+
+position:fixed;
+
+bottom:20px;
+
+right:20px;
+
+
+background:#009900;
+
+color:white;
+
+
+padding:15px 20px;
+
+
+border-radius:50px;
+
+
+font-weight:bold;
+
+
+font-size:16px;
+
+
+cursor:pointer;
+
+
+box-shadow:0 5px 15px #555;
+
+
+z-index:999;
+
+
+
+}
+
+
+
+#contadorCarrinho{
+
+
+background:red;
+
+color:white;
+
+
+border-radius:50%;
+
+
+padding:3px 8px;
+
+
+margin-left:8px;
+
+
+}
+
+
+
+#resumoCarrinho{
+
+
+display:block;
+
+
+font-size:13px;
+
+
+margin-top:5px;
+
+
+}
+
+
+
+@keyframes balancarCarrinho{
+
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+
+25%{
+
+transform:rotate(-10deg);
+
+}
+
+
+50%{
+
+transform:rotate(10deg);
+
+}
+
+
+75%{
+
+transform:rotate(-10deg);
+
+}
+
+
+100%{
+
+transform:rotate(0deg);
+
+}
+
+
+}
+
+
+
+.animarCarrinho{
+
+
+animation:balancarCarrinho .5s;
+
+
+}
+
+
+
+
+.modal-carrinho{
+
+
+display:none;
+
+
+position:fixed;
+
+
+top:0;
+
+left:0;
+
+
+width:100%;
+
+height:100%;
+
+
+background:rgba(0,0,0,.6);
+
+
+z-index:1000;
+
+
+}
+
+
+
+.carrinho-box{
+
+
+background:white;
+
+
+width:90%;
+
+
+max-width:400px;
+
+
+margin:50px auto;
+
+
+padding:20px;
+
+
+border-radius:15px;
+
+
+}
+
+
+
+.itemCarrinho{
+
+
+display:flex;
+
+
+justify-content:space-between;
+
+
+align-items:center;
+
+
+border-bottom:1px solid #ddd;
+
+
+padding:10px 0;
+
+
+}
+
+
+
+.quantidadeCarrinho button{
+
+
+border:none;
+
+
+background:#111;
+
+
+color:white;
+
+
+border-radius:5px;
+
+
+padding:5px 10px;
+
+
+}
+
+
+
+.btnFinalizar{
+
+
+width:100%;
+
+
+background:#009900;
+
+
+color:white;
+
+
+border:none;
+
+
+padding:15px;
+
+
+border-radius:10px;
+
+
+font-size:17px;
+
+
+margin-top:15px;
+
+
+}
+
+
+
+.btnFechar{
+
+
+width:100%;
+
+
+background:#ddd;
+
+
+border:none;
+
+
+padding:12px;
+
+
+border-radius:10px;
+
+
+margin-top:10px;
+
+
+}
+
+
+
+#avisoCarrinho{
+
+
+position:fixed;
+
+
+bottom:90px;
+
+
+right:20px;
+
+
+background:#009900;
+
+
+color:white;
+
+
+padding:12px 18px;
+
+
+border-radius:10px;
+
+
+font-weight:bold;
+
+
+display:none;
+
+
+z-index:2000;
+
+
+box-shadow:0 3px 10px #555;
+
+
+}
+
+
+
+</style>
 
 <script>
 
-let carrinho = [];
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
 
 
 function adicionar(nome, preco){
 
-    let produto = carrinho.find(item => item.nome === nome);
 
-    if(produto){
-
-        produto.quantidade++;
-
-    }else{
-
-        carrinho.push({
-            nome:nome,
-            preco:preco,
-            quantidade:1
-        });
-
-    }
-
-    atualizarCarrinho();
-
-}
+let produto = carrinho.find(item => item.nome === nome);
 
 
-function aumentar(index){
 
-    carrinho[index].quantidade++;
+if(produto){
 
-    atualizarCarrinho();
+produto.quantidade++;
+
+}else{
+
+
+carrinho.push({
+
+nome:nome,
+
+preco:preco,
+
+quantidade:1
+
+});
+
 
 }
 
 
 
-
-function diminuir(index){
-
-    carrinho[index].quantidade--;
+salvarCarrinho();
 
 
-    if(carrinho[index].quantidade <= 0){
-
-        carrinho.splice(index,1);
-
-    }
+mostrarAviso(nome);
 
 
-    atualizarCarrinho();
+animarCarrinho();
+
 
 }
 
 
 
 
-function remover(index){
+function diminuirProduto(nome){
 
-    carrinho.splice(index,1);
 
-    atualizarCarrinho();
+let produto = carrinho.find(item => item.nome === nome);
+
+
+
+if(produto){
+
+
+produto.quantidade--;
+
+
+if(produto.quantidade <= 0){
+
+
+carrinho = carrinho.filter(item => item.nome !== nome);
+
+
+}
+
+
+}
+
+
+salvarCarrinho();
+
+
+}
+
+
+
+
+function alterarQuantidade(index, valor){
+
+
+carrinho[index].quantidade += valor;
+
+
+
+if(carrinho[index].quantidade <= 0){
+
+
+carrinho.splice(index,1);
+
+
+}
+
+
+
+salvarCarrinho();
+
+
+}
+
+
+
+
+function salvarCarrinho(){
+
+
+localStorage.setItem(
+
+"carrinho",
+
+JSON.stringify(carrinho)
+
+);
+
+
+atualizarCarrinho();
+
 
 }
 
@@ -613,19 +1115,33 @@ function remover(index){
 
 function atualizarCarrinho(){
 
+
 let lista = document.getElementById("listaCarrinho");
 
+
 let total = 0;
+
+
+let quantidadeTotal = 0;
+
+
+
+if(!lista) return;
+
 
 
 lista.innerHTML="";
 
 
+
 if(carrinho.length === 0){
 
-lista.innerHTML="Seu carrinho está vazio";
 
-}
+lista.innerHTML="<p>Seu carrinho está vazio.</p>";
+
+
+
+}else{
 
 
 
@@ -634,50 +1150,86 @@ carrinho.forEach((item,index)=>{
 
 let subtotal = item.preco * item.quantidade;
 
+
 total += subtotal;
+
+
+quantidadeTotal += item.quantidade;
+
 
 
 lista.innerHTML += `
 
-<div style="margin-bottom:15px">
 
-<b>${item.nome}</b>
+<div class="itemCarrinho">
+
+
+<div>
+
+<strong>${item.nome}</strong>
 
 <br>
 
-R$ ${item.preco.toFixed(2)}
+R$ ${subtotal.toFixed(2)}
 
-<br>
+</div>
 
-<button onclick="diminuir(${index})">
--
+
+
+<div class="quantidadeCarrinho">
+
+
+<button onclick="alterarQuantidade(${index},-1)">
+
+−
+
 </button>
+
 
 
 ${item.quantidade}
 
 
-<button onclick="aumentar(${index})">
+
+<button onclick="alterarQuantidade(${index},1)">
+
 +
-</button>
 
-
-<button onclick="remover(${index})">
-🗑️
 </button>
 
 
 </div>
 
-<hr>
+
+</div>
+
 
 `;
+
 
 });
 
 
-document.getElementById("total").innerText =
-total.toFixed(2);
+}
+
+
+
+document.getElementById("totalCarrinho").innerHTML =
+
+"R$ "+total.toFixed(2);
+
+
+
+document.getElementById("resumoCarrinho").innerHTML =
+
+quantidadeTotal+" itens • R$ "+total.toFixed(2);
+
+
+
+document.getElementById("contadorCarrinho").innerHTML =
+
+quantidadeTotal;
+
 
 
 }
@@ -685,170 +1237,96 @@ total.toFixed(2);
 
 
 
-function finalizarPedido(){
+function mostrarAviso(nome){
 
 
-let nome =
-document.getElementById("nomeCliente").value;
+let aviso=document.getElementById("avisoCarrinho");
 
 
-let endereco =
-document.getElementById("enderecoCliente").value;
+aviso.innerHTML=
+
+"🛒 "+nome+" adicionado ao carrinho!";
 
 
-let pagamento =
-document.getElementById("pagamento").value;
-
-
-
-let taxa = 3;
-
-
-let totalPedido = 0;
+aviso.style.display="block";
 
 
 
-let mensagem =
-
-`🍔 *PEDIDO - CANTINHO PIZZA BURGUER*
-
-👤 Cliente:
-${nome}
+setTimeout(()=>{
 
 
-📍 Endereço:
-${endereco}
+aviso.style.display="none";
 
 
-🛒 Pedido:
-`;
+},2500);
 
-
-
-carrinho.forEach(item=>{
-
-
-let subtotal =
-item.preco * item.quantidade;
-
-
-totalPedido += subtotal;
-
-
-mensagem += `
-
-🍔 ${item.nome}
-
-Quantidade: ${item.quantidade}
-
-R$ ${subtotal.toFixed(2)}
-
-`;
-
-});
-
-
-
-totalPedido += taxa;
-
-
-
-mensagem += `
-
-🚚 Taxa entrega:
-R$ ${taxa.toFixed(2)}
-
-
-💰 Total:
-R$ ${totalPedido.toFixed(2)}
-
-
-💳 Pagamento:
-${pagamento}
-
-`;
-
-
-
-let numero =
-"5587981670907";
-
-
-
-let url =
-"https://wa.me/"+numero+
-"?text="+encodeURIComponent(mensagem);
-
-
-
-window.location.href = url;
 
 
 }
+
+
+
+
+
+function animarCarrinho(){
+
+
+let botao=document.getElementById("carrinhoFlutuante");
+
+
+
+botao.classList.remove("animarCarrinho");
+
+
+
+void botao.offsetWidth;
+
+
+
+botao.classList.add("animarCarrinho");
+
+
+
+}
+
+
+
+
+
+function abrirCarrinho(){
+
+
+document.getElementById("modalCarrinho").style.display="block";
+
+
+}
+
+
+
+
+function fecharCarrinho(){
+
+
+document.getElementById("modalCarrinho").style.display="none";
+
+
+}
+
+
+
 
 function irParaFinalizar(){
 
-localStorage.setItem(
-"carrinho",
-JSON.stringify(carrinho)
-);
 
 window.location.href="finalizar.html";
 
-}
-
-function verificarLoja(){
-
-    let agora = new Date();
-
-    let hora = agora.getHours();
-
-    let status = document.getElementById("statusLoja");
-
-    let botoesAdicionar = document.querySelectorAll("button[onclick^='adicionar']");
-
-    let botaoFinalizar = document.querySelector("button[onclick='irParaFinalizar()']");
-
-    // HORÁRIO DE FUNCIONAMENTO
-    // Das 18:00 às 23:00
-
-    if(hora >= 18 && hora < 22){
-
-        status.innerHTML = "🟢 LOJA ABERTA - Faça seu pedido!";
-
-        status.className = "aberta";
-
-        botoesAdicionar.forEach(botao=>{
-            botao.disabled = false;
-        });
-
-        if(botaoFinalizar){
-            botaoFinalizar.disabled = false;
-        }
-
-    }else{
-
-        status.innerHTML = "🔴 LOJA FECHADA - Abrimos às 18:00";
-
-        status.className = "fechada";
-
-        botoesAdicionar.forEach(botao=>{
-            botao.disabled = true;
-        });
-
-        if(botaoFinalizar){
-            botaoFinalizar.disabled = true;
-        }
-
-    }
 
 }
 
-verificarLoja();
+
+
+atualizarCarrinho();
+
+
 
 </script>
-
-
-</body>
-
-</html>
