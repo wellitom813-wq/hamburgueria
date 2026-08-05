@@ -1,1 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Finalizar Pedido - Hamburgueria</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+}
+
+
+header{
+
+    background:#111;
+    color:white;
+    padding:20px;
+    text-align:center;
+
+}
+
+
+.container{
+
+    max-width:500px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 3px 10px #ccc;
+
+}
+
+
+h2{
+
+    text-align:center;
+
+}
+
+
+
+input, textarea, select{
+
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+    box-sizing:border-box;
+
+}
+
+
+
+#pedido{
+
+    background:#f1f1f1;
+    padding:15px;
+    border-radius:10px;
+
+}
+
+
+
+.item{
+
+    border-bottom:1px solid #ddd;
+    padding:8px 0;
+
+}
+
+
+
+.total{
+
+    font-size:22px;
+    font-weight:bold;
+    margin-top:15px;
+
+}
+
+
+
+button{
+
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+
+    background:#009900;
+    color:white;
+
+    border:none;
+    border-radius:10px;
+
+    font-size:18px;
+    cursor:pointer;
+
+}
+
+
+.voltar{
+
+    background:#111;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🍔 Finalizar Pedido</h1>
+
+</header>
+
+
+
+<div class="container">
+
+
+<h2>Dados da entrega</h2>
+
+
+
+<input id="nome" placeholder="Nome do cliente">
+
+
+
+<input id="telefone" placeholder="Telefone / WhatsApp">
+
+
+
+<textarea id="endereco" placeholder="Endereço completo"></textarea>
+
+
+
+<select id="pagamento">
+
+<option value="">Forma de pagamento</option>
+
+<option>Pix</option>
+
+<option>Dinheiro</option>
+
+<option>Cartão</option>
+
+</select>
+
+
+
+
+<h2>Resumo do pedido</h2>
+
+
+<div id="pedido">
+
+</div>
+
+
+
+<div class="total">
+
+Total: 
+
+<span id="valorTotal">
+
+R$ 0,00
+
+</span>
+
+
+</div>
+
+
+
+
+<button onclick="enviarPedido()">
+
+📲 Enviar pedido no WhatsApp
+
+</button>
+
+
+
+<button class="voltar" onclick="voltarCardapio()">
+
+⬅ Voltar ao cardápio
+
+</button>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+
+let pedido = document.getElementById("pedido");
+
+let total = 0;
+
+
+
+if(carrinho.length === 0){
+
+
+pedido.innerHTML="<p>Nenhum produto no carrinho.</p>";
+
+
+}else{
+
+
+carrinho.forEach(item=>{
+
+
+let subtotal=item.preco * item.quantidade;
+
+
+total += subtotal;
+
+
+
+pedido.innerHTML += `
+
+<div class="item">
+
+${item.quantidade}x ${item.nome}
+
+<br>
+
+R$ ${subtotal.toFixed(2)}
+
+</div>
+
+`;
+
+
+});
+
+
+}
+
+
+
+document.getElementById("valorTotal").innerHTML=
+
+"R$ "+total.toFixed(2);
+
+
+
+
+
+function enviarPedido(){
+
+
+
+let nome=document.getElementById("nome").value;
+
+let telefone=document.getElementById("telefone").value;
+
+let endereco=document.getElementById("endereco").value;
+
+let pagamento=document.getElementById("pagamento").value;
+
+
+
+if(nome=="" || telefone=="" || endereco=="" || pagamento==""){
+
+
+alert("Preencha todos os campos!");
+
+return;
+
+
+}
+
+
+
+let mensagem=
+
+"🍔 *NOVO PEDIDO*%0A%0A"+
+
+"👤 Cliente: "+nome+"%0A"+
+
+"📱 WhatsApp: "+telefone+"%0A"+
+
+"📍 Endereço: "+endereco+"%0A"+
+
+"💳 Pagamento: "+pagamento+"%0A%0A"+
+
+"🛒 Produtos:%0A";
+
+
+
+
+carrinho.forEach(item=>{
+
+
+mensagem +=
+
+item.quantidade+"x "+item.nome+
+
+" - R$ "+
+
+(item.preco*item.quantidade).toFixed(2)
+
++"%0A";
+
+
+});
+
+
+
+mensagem +=
+
+"%0A💰 Total: R$ "+total.toFixed(2);
+
+
+
+
+
+let numero="5587991532323";
+
+
+
+window.open(
+
+"https://wa.me/"+numero+"?text="+mensagem,
+
+"_blank"
+
+);
+
+
+
+}
+
+
+
+
+function voltarCardapio(){
+
+window.location.href="index.html";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
