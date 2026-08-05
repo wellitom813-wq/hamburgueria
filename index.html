@@ -572,25 +572,21 @@ margin-top:4px;
 
 </div>
 
-<!-- CARRINHO FLUTUANTE NOVO -->
+<!-- CARRINHO FLUTUANTE COMPLETO -->
 
 <div id="carrinhoFlutuante" class="carrinho-flutuante" onclick="abrirCarrinho()">
 
 🛒 Ver Carrinho
 
-<span id="contadorCarrinho">
-0
-</span>
+<span id="contadorCarrinho">0</span>
 
-<span id="resumoCarrinho">
+<div id="resumoCarrinho">
 0 itens • R$ 0,00
-</span>
+</div>
 
 </div>
 
 
-
-<!-- AVISO DE PRODUTO -->
 
 <div id="avisoCarrinho">
 
@@ -607,6 +603,7 @@ margin-top:4px;
 
 
 <h2>🛒 Meu Pedido</h2>
+
 
 
 <div id="listaCarrinho">
@@ -627,14 +624,13 @@ R$ 0,00
 
 </strong>
 
-
 </div>
 
 
 
 <button class="btnFinalizar" onclick="irParaFinalizar()">
 
-Finalizar Pedido
+✅ Finalizar Pedido
 
 </button>
 
@@ -642,14 +638,13 @@ Finalizar Pedido
 
 <button class="btnFechar" onclick="fecharCarrinho()">
 
-Continuar Comprando
+⬅ Continuar Comprando
 
 </button>
 
 
 
 </div>
-
 
 </div>
 
@@ -661,39 +656,29 @@ Continuar Comprando
 
 .carrinho-flutuante{
 
-
 position:fixed;
-
-bottom:20px;
 
 right:20px;
 
+bottom:20px;
 
 background:#009900;
 
 color:white;
 
-
 padding:15px 20px;
-
 
 border-radius:50px;
 
+font-size:16px;
 
 font-weight:bold;
 
-
-font-size:16px;
-
-
 cursor:pointer;
-
 
 box-shadow:0 5px 15px #555;
 
-
 z-index:999;
-
 
 
 }
@@ -702,20 +687,13 @@ z-index:999;
 
 #contadorCarrinho{
 
-
 background:red;
-
-color:white;
-
 
 border-radius:50%;
 
-
 padding:3px 8px;
 
-
-margin-left:8px;
-
+margin-left:5px;
 
 }
 
@@ -723,55 +701,39 @@ margin-left:8px;
 
 #resumoCarrinho{
 
-
-display:block;
-
-
 font-size:13px;
 
-
 margin-top:5px;
-
 
 }
 
 
 
-@keyframes balancarCarrinho{
+@keyframes balanco{
 
 
 0%{
-
-transform:rotate(0deg);
-
+transform:rotate(0);
 }
 
 
 25%{
-
 transform:rotate(-10deg);
-
 }
 
 
 50%{
-
 transform:rotate(10deg);
-
 }
 
 
 75%{
-
 transform:rotate(-10deg);
-
 }
 
 
 100%{
-
-transform:rotate(0deg);
-
+transform:rotate(0);
 }
 
 
@@ -781,9 +743,7 @@ transform:rotate(0deg);
 
 .animarCarrinho{
 
-
-animation:balancarCarrinho .5s;
-
+animation:balanco .5s;
 
 }
 
@@ -792,25 +752,19 @@ animation:balancarCarrinho .5s;
 
 .modal-carrinho{
 
-
 display:none;
 
-
 position:fixed;
-
 
 top:0;
 
 left:0;
 
-
 width:100%;
 
 height:100%;
 
-
 background:rgba(0,0,0,.6);
-
 
 z-index:1000;
 
@@ -821,21 +775,15 @@ z-index:1000;
 
 .carrinho-box{
 
-
 background:white;
-
 
 width:90%;
 
-
 max-width:400px;
-
 
 margin:50px auto;
 
-
 padding:20px;
-
 
 border-radius:15px;
 
@@ -846,18 +794,11 @@ border-radius:15px;
 
 .itemCarrinho{
 
-
 display:flex;
-
 
 justify-content:space-between;
 
-
-align-items:center;
-
-
 border-bottom:1px solid #ddd;
-
 
 padding:10px 0;
 
@@ -868,20 +809,15 @@ padding:10px 0;
 
 .quantidadeCarrinho button{
 
-
-border:none;
-
-
 background:#111;
-
 
 color:white;
 
-
-border-radius:5px;
-
+border:none;
 
 padding:5px 10px;
+
+border-radius:5px;
 
 
 }
@@ -890,29 +826,21 @@ padding:5px 10px;
 
 .btnFinalizar{
 
-
 width:100%;
-
-
-background:#009900;
-
-
-color:white;
-
-
-border:none;
-
 
 padding:15px;
 
+margin-top:15px;
+
+background:#009900;
+
+color:white;
+
+border:none;
 
 border-radius:10px;
 
-
 font-size:17px;
-
-
-margin-top:15px;
 
 
 }
@@ -921,23 +849,17 @@ margin-top:15px;
 
 .btnFechar{
 
-
 width:100%;
-
-
-background:#ddd;
-
-
-border:none;
-
 
 padding:12px;
 
+margin-top:10px;
+
+background:#ddd;
+
+border:none;
 
 border-radius:10px;
-
-
-margin-top:10px;
 
 
 }
@@ -946,47 +868,34 @@ margin-top:10px;
 
 #avisoCarrinho{
 
+display:none;
 
 position:fixed;
 
+right:20px;
 
 bottom:90px;
 
-
-right:20px;
-
-
 background:#009900;
-
 
 color:white;
 
-
 padding:12px 18px;
-
 
 border-radius:10px;
 
-
 font-weight:bold;
 
-
-display:none;
-
-
 z-index:2000;
-
-
-box-shadow:0 3px 10px #555;
 
 
 }
 
 
-
 </style>
 
 <script>
+
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -1046,6 +955,7 @@ if(produto){
 
 
 produto.quantidade--;
+
 
 
 if(produto.quantidade <= 0){
@@ -1113,16 +1023,17 @@ atualizarCarrinho();
 
 
 
+
 function atualizarCarrinho(){
 
 
-let lista = document.getElementById("listaCarrinho");
+let lista=document.getElementById("listaCarrinho");
 
 
-let total = 0;
+let total=0;
 
 
-let quantidadeTotal = 0;
+let quantidade=0;
 
 
 
@@ -1134,27 +1045,28 @@ lista.innerHTML="";
 
 
 
-if(carrinho.length === 0){
+if(carrinho.length==0){
 
 
 lista.innerHTML="<p>Seu carrinho está vazio.</p>";
 
 
+}
 
-}else{
-
+else{
 
 
 carrinho.forEach((item,index)=>{
 
 
-let subtotal = item.preco * item.quantidade;
+let subtotal=item.preco*item.quantidade;
+
 
 
 total += subtotal;
 
 
-quantidadeTotal += item.quantidade;
+quantidade += item.quantidade;
 
 
 
@@ -1166,11 +1078,15 @@ lista.innerHTML += `
 
 <div>
 
+
 <strong>${item.nome}</strong>
+
 
 <br>
 
+
 R$ ${subtotal.toFixed(2)}
+
 
 </div>
 
@@ -1207,6 +1123,7 @@ ${item.quantidade}
 `;
 
 
+
 });
 
 
@@ -1222,17 +1139,18 @@ document.getElementById("totalCarrinho").innerHTML =
 
 document.getElementById("resumoCarrinho").innerHTML =
 
-quantidadeTotal+" itens • R$ "+total.toFixed(2);
+quantidade+" itens • R$ "+total.toFixed(2);
 
 
 
 document.getElementById("contadorCarrinho").innerHTML =
 
-quantidadeTotal;
+quantidade;
 
 
 
 }
+
 
 
 
@@ -1243,9 +1161,7 @@ function mostrarAviso(nome){
 let aviso=document.getElementById("avisoCarrinho");
 
 
-aviso.innerHTML=
-
-"🛒 "+nome+" adicionado ao carrinho!";
+aviso.innerHTML="🛒 "+nome+" adicionado!";
 
 
 aviso.style.display="block";
@@ -1267,7 +1183,6 @@ aviso.style.display="none";
 
 
 
-
 function animarCarrinho(){
 
 
@@ -1278,13 +1193,10 @@ let botao=document.getElementById("carrinhoFlutuante");
 botao.classList.remove("animarCarrinho");
 
 
-
 void botao.offsetWidth;
 
 
-
 botao.classList.add("animarCarrinho");
-
 
 
 }
@@ -1315,6 +1227,7 @@ document.getElementById("modalCarrinho").style.display="none";
 
 
 
+
 function irParaFinalizar(){
 
 
@@ -1324,9 +1237,28 @@ window.location.href="finalizar.html";
 }
 
 
+// Atualiza o carrinho ao abrir a página
 
-atualizarCarrinho();
+document.addEventListener("DOMContentLoaded", function(){
 
+    atualizarCarrinho();
+
+});
+
+
+// Fecha o carrinho clicando fora da janela
+
+window.onclick = function(event){
+
+    let modal = document.getElementById("modalCarrinho");
+
+    if(event.target == modal){
+
+        modal.style.display="none";
+
+    }
+
+}
 
 
 </script>
