@@ -165,6 +165,19 @@ font-size:18px;
     margin: 15px 0;
 }
 
+.btn-limpar{
+    width:100%;
+    background:#e53935;
+    color:#fff;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
 </style>
 
 </head>
@@ -922,6 +935,10 @@ Finalizar Pedido
 
 </button>
 
+<button onclick="limparCarrinho()" class="btn-limpar">
+🗑️ Limpar Carrinho
+</button>
+
 <button class="btnFechar" onclick="fecharCarrinho()">
 
 Continuar Comprando
@@ -1259,6 +1276,22 @@ function salvarCarrinho(){
 
 
 
+function salvarCarrinho(){
+
+    localStorage.setItem(
+
+        "carrinho",
+
+        JSON.stringify(carrinho)
+
+    );
+
+    atualizarCarrinho();
+
+}
+
+
+
 function atualizarCarrinho(){
 
     let lista = document.getElementById("listaCarrinho");
@@ -1270,53 +1303,6 @@ function atualizarCarrinho(){
     if(!lista) return;
 
     lista.innerHTML="";
-
-
-
-    if(carrinho.length==0){
-
-        lista.innerHTML="<p>Seu carrinho está vazio.</p>";
-
-    }else{
-
-        carrinho.forEach((item,index)=>{
-
-            let subtotal=item.preco*item.quantidade;
-
-            total+=subtotal;
-
-            quantidadeTotal+=item.quantidade;
-
-            lista.innerHTML+=`
-
-            <div class="itemCarrinho">
-
-                <div>
-
-                    <strong>${item.nome}</strong><br>
-
-                    R$ ${subtotal.toFixed(2)}
-
-                </div>
-
-                <div class="quantidadeCarrinho">
-
-                    <button onclick="alterarQuantidade(${index},-1)">−</button>
-
-                    <span>${item.quantidade}</span>
-
-                    <button onclick="alterarQuantidade(${index},1)">+</button>
-
-                </div>
-
-            </div>
-
-            `;
-
-        });
-
-    }
-
 
 
     document.getElementById("totalCarrinho").innerHTML=
