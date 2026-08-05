@@ -960,7 +960,7 @@ Continuar Comprando
 .carrinho-flutuante{
     position: fixed;
     right: 20px;
-    bottom: 600px;      /* antes era 20px */
+    bottom: 120px;      /* antes era 20px */
     background: #16a34a;
     color: #fff;
     padding: 10px 14px; /* antes era 15px 20px */
@@ -972,6 +972,7 @@ Continuar Comprando
     min-width: 160px;   /* antes era 190px */
     text-align: center;
     font-size: 14px;    /* deixa o texto um pouco menor */
+    display: none;
 }
 
 .carrinho-flutuante:hover{
@@ -1311,6 +1312,14 @@ function atualizarCarrinho(){
 
     document.getElementById("resumoCarrinho").innerHTML =
         quantidadeTotal + " itens • R$ " + total.toFixed(2);
+  
+        let carrinhoFlutuante = document.getElementById("carrinhoFlutuante");
+
+if (quantidadeTotal > 0) {
+    carrinhoFlutuante.style.display = "block";
+} else {
+    carrinhoFlutuante.style.display = "none";
+}
 
 }
 
