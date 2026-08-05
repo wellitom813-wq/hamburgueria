@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Finalizar Pedido - Hamburgueria</title>
+<title>Finalizar Pedido</title>
 
 <style>
 
@@ -16,16 +16,12 @@ body{
     background:#f5f5f5;
 }
 
-
 header{
-
     background:#111;
     color:white;
     padding:20px;
     text-align:center;
-
 }
-
 
 .container{
 
@@ -39,14 +35,6 @@ header{
 }
 
 
-h2{
-
-    text-align:center;
-
-}
-
-
-
 input, textarea, select{
 
     width:100%;
@@ -54,40 +42,36 @@ input, textarea, select{
     margin:8px 0;
     border-radius:8px;
     border:1px solid #ccc;
-    font-size:16px;
     box-sizing:border-box;
+    font-size:16px;
 
 }
 
 
+.pedido{
 
-#pedido{
-
-    background:#f1f1f1;
+    background:#eee;
     padding:15px;
     border-radius:10px;
 
 }
 
 
-
 .item{
 
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #ccc;
     padding:8px 0;
 
 }
 
 
-
 .total{
 
-    font-size:22px;
+    font-size:18px;
     font-weight:bold;
     margin-top:15px;
 
 }
-
 
 
 button{
@@ -95,13 +79,10 @@ button{
     width:100%;
     padding:15px;
     margin-top:15px;
-
-    background:#009900;
-    color:white;
-
     border:none;
     border-radius:10px;
-
+    background:#009900;
+    color:white;
     font-size:18px;
     cursor:pointer;
 
@@ -113,8 +94,6 @@ button{
     background:#111;
 
 }
-
-
 
 </style>
 
@@ -135,41 +114,77 @@ button{
 <div class="container">
 
 
-<h2>Dados da entrega</h2>
-
+<h2>Dados do cliente</h2>
 
 
 <input id="nome" placeholder="Nome do cliente">
 
 
-
-<input id="telefone" placeholder="Telefone / WhatsApp">
-
+<input id="telefone" placeholder="WhatsApp">
 
 
-<textarea id="endereco" placeholder="Endereço completo"></textarea>
+<textarea id="endereco" placeholder="Endereço de entrega"></textarea>
+
+
+
+<select id="bairro" onchange="calcularTaxa()">
+
+<option value="">
+Escolha a região
+</option>
+
+<option value="N1">
+N1 - Taxa R$ 4,00
+</option>
+
+<option value="N3">
+N3 - Taxa R$ 3,00
+</option>
+
+<option value="N5">
+N5 - Taxa R$ 5,00
+</option>
+
+<option value="C2">
+C2 - Taxa R$ 7,00
+</option>
+
+</select>
 
 
 
 <select id="pagamento">
 
-<option value="">Forma de pagamento</option>
+<option value="">
+Forma de pagamento
+</option>
 
-<option>Pix</option>
+<option>
+Pix
+</option>
 
-<option>Dinheiro</option>
+<option>
+Dinheiro
+</option>
 
-<option>Cartão</option>
+<option>
+Cartão
+</option>
 
 </select>
 
 
 
 
-<h2>Resumo do pedido</h2>
+<h2>🛒 Seu pedido</h2>
 
 
-<div id="pedido">
+<div class="pedido">
+
+<div id="listaPedido">
+
+</div>
+
 
 </div>
 
@@ -177,17 +192,32 @@ button{
 
 <div class="total">
 
-Total: 
 
-<span id="valorTotal">
-
+Produtos:
+<span id="valorProdutos">
 R$ 0,00
+</span>
 
+
+<br>
+
+
+Taxa entrega:
+<span id="taxaEntrega">
+R$ 0,00
+</span>
+
+
+<br><br>
+
+
+Total:
+<span id="valorTotal">
+R$ 0,00
 </span>
 
 
 </div>
-
 
 
 
@@ -218,32 +248,27 @@ R$ 0,00
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 
-let pedido = document.getElementById("pedido");
-
 let total = 0;
 
+let taxa = 0;
 
 
-if(carrinho.length === 0){
 
+let listaPedido = document.getElementById("listaPedido");
 
-pedido.innerHTML="<p>Nenhum produto no carrinho.</p>";
-
-
-}else{
 
 
 carrinho.forEach(item=>{
 
 
-let subtotal=item.preco * item.quantidade;
+let subtotal = item.preco * item.quantidade;
 
 
 total += subtotal;
 
 
 
-pedido.innerHTML += `
+listaPedido.innerHTML += `
 
 <div class="item">
 
@@ -261,13 +286,73 @@ R$ ${subtotal.toFixed(2)}
 });
 
 
+
+document.getElementById("valorProdutos").innerHTML =
+
+"R$ "+total.toFixed(2);
+
+
+
+document.getElementById("valorTotal").innerHTML =
+
+"R$ "+total.toFixed(2);
+
+
+
+
+
+function calcularTaxa(){
+
+
+let bairro = document.getElementById("bairro").value;
+
+
+
+if(bairro=="N1"){
+
+taxa=4;
+
+}
+
+else if(bairro=="N3"){
+
+taxa=3;
+
+}
+
+else if(bairro=="N5"){
+
+taxa=5;
+
+}
+
+else if(bairro=="C2"){
+
+taxa=7;
+
+}
+
+else{
+
+taxa=0;
+
 }
 
 
 
-document.getElementById("valorTotal").innerHTML=
+document.getElementById("taxaEntrega").innerHTML =
 
-"R$ "+total.toFixed(2);
+"R$ "+taxa.toFixed(2);
+
+
+
+document.getElementById("valorTotal").innerHTML =
+
+"R$ "+(total+taxa).toFixed(2);
+
+
+
+}
 
 
 
@@ -283,35 +368,39 @@ let telefone=document.getElementById("telefone").value;
 
 let endereco=document.getElementById("endereco").value;
 
+let bairro=document.getElementById("bairro").value;
+
 let pagamento=document.getElementById("pagamento").value;
 
 
 
-if(nome=="" || telefone=="" || endereco=="" || pagamento==""){
+if(nome=="" || telefone=="" || endereco=="" || bairro=="" || pagamento==""){
 
 
 alert("Preencha todos os campos!");
 
 return;
 
-
 }
 
 
 
-let mensagem=
+
+let mensagem =
 
 "🍔 *NOVO PEDIDO*%0A%0A"+
 
-"👤 Cliente: "+nome+"%0A"+
+"👤 Nome: "+nome+"%0A"+
 
 "📱 WhatsApp: "+telefone+"%0A"+
 
 "📍 Endereço: "+endereco+"%0A"+
 
+"🏠 Região: "+bairro+"%0A"+
+
 "💳 Pagamento: "+pagamento+"%0A%0A"+
 
-"🛒 Produtos:%0A";
+"🛒 Pedido:%0A";
 
 
 
@@ -336,7 +425,9 @@ item.quantidade+"x "+item.nome+
 
 mensagem +=
 
-"%0A💰 Total: R$ "+total.toFixed(2);
+"%0A🚚 Taxa entrega: R$ "+taxa.toFixed(2)+
+
+"%0A💰 Total: R$ "+(total+taxa).toFixed(2);
 
 
 
@@ -366,6 +457,7 @@ function voltarCardapio(){
 window.location.href="index.html";
 
 }
+
 
 
 </script>
