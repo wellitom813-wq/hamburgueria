@@ -158,6 +158,13 @@ font-size:18px;
 
 }
 
+.status-loja{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
 </style>
 
 </head>
@@ -171,6 +178,8 @@ font-size:18px;
 <p>Delivery • Faça seu pedido</p>
 
 </header>
+
+<div id="statusLoja" class="status-loja"></div>
 
 <img src="imagens/banerrr.png" class="banner">
 
@@ -1419,6 +1428,21 @@ window.onclick = function(event){
     }
 
 }
+
+function atualizarStatusLoja() {
+    const hora = new Date().getHours();
+    const status = document.getElementById("statusLoja");
+
+    if (hora >= 7 && hora < 22) {
+        status.innerHTML = "🟢 ABERTO AGORA";
+        status.style.color = "#16a34a";
+    } else {
+        status.innerHTML = "🔴 FECHADO NO MOMENTO";
+        status.style.color = "#dc2626";
+    }
+}
+
+atualizarStatusLoja();
 
 </script>
 
