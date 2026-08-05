@@ -4,9 +4,10 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CANTINHO PIZZA BURGUER</title>
+<title>Minha Hamburgueria Delivery</title>
 
 <style>
 
@@ -14,161 +15,147 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-background:#f5f5f5;
+background:#f4f4f4;
 padding-bottom:120px;
 }
 
-header img{
+header{
+background:#111;
+color:#fff;
+text-align:center;
+padding:18px;
+box-shadow:0 2px 10px rgba(0,0,0,.3);
+}
+
+header h1{
+font-size:30px;
+}
+
+header p{
+margin-top:8px;
+color:#ddd;
+}
+
+.banner{
+
 width:100%;
 height:220px;
 object-fit:cover;
-display:block;
-}
 
-#statusLoja{
-margin:10px;
-padding:12px;
-text-align:center;
-font-weight:bold;
-border-radius:10px;
-color:#fff;
-font-size:18px;
-}
-
-.aberta{
-background:#28a745;
-}
-
-.fechada{
-background:#dc3545;
-}
-
-.abas{
-display:flex;
-justify-content:center;
-gap:10px;
-padding:10px;
-background:#fff;
-position:sticky;
-top:0;
-z-index:999;
-box-shadow:0 2px 8px rgba(0,0,0,.1);
-}
-
-.abas button{
-background:#d62828;
-color:#fff;
-border:none;
-padding:10px 18px;
-border-radius:25px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.container{
-padding:15px;
 }
 
 .tituloCategoria{
-font-size:26px;
-margin:20px 0 10px;
-color:#222;
+
+margin:20px 15px 10px;
+
+background:#009900;
+
+color:white;
+
+padding:12px;
+
+border-radius:10px;
+
+font-size:22px;
+
 }
 
 .produto{
-background:#fff;
+
+background:white;
+
+margin:15px;
+
+padding:12px;
+
+display:flex;
+
 border-radius:15px;
-overflow:hidden;
-margin-bottom:18px;
-box-shadow:0 3px 10px rgba(0,0,0,.15);
+
+box-shadow:0 3px 12px rgba(0,0,0,.15);
+
 }
 
 .produto img{
-width:100%;
-height:190px;
+
+width:110px;
+
+height:110px;
+
+border-radius:10px;
+
 object-fit:cover;
+
+margin-right:15px;
+
 }
 
 .produtoInfo{
-padding:15px;
+
+flex:1;
+
 }
 
-.produto h3{
+.produtoInfo h3{
+
 margin-bottom:8px;
+
 }
 
 .preco{
+
+color:#009900;
+
 font-size:22px;
+
 font-weight:bold;
-color:#d62828;
-margin:10px 0;
+
+margin-top:8px;
+
 }
 
 .controles{
+
 display:flex;
-justify-content:center;
+
 align-items:center;
-gap:12px;
-margin-top:10px;
+
+gap:10px;
+
+margin-top:12px;
+
 }
 
 .controles button{
-width:40px;
-height:40px;
+
+width:35px;
+
+height:35px;
+
 border:none;
+
 border-radius:50%;
+
+background:#009900;
+
+color:white;
+
 font-size:22px;
-font-weight:bold;
-background:#25D366;
-color:#fff;
+
 cursor:pointer;
+
 }
 
 .quantidade{
-font-size:20px;
+
 font-weight:bold;
-min-width:25px;
-text-align:center;
-}
 
-.carrinho{
-background:#fff;
-margin:15px;
-padding:15px;
-border-radius:15px;
-box-shadow:0 2px 10px rgba(0,0,0,.15);
-}
-
-#listaCarrinho hr{
-margin:10px 0;
-}
-
-.carrinho-flutuante{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:#25D366;
-color:#fff;
-padding:15px 22px;
-border-radius:40px;
-font-weight:bold;
 font-size:18px;
-display:none;
-box-shadow:0 5px 15px rgba(0,0,0,.35);
-cursor:pointer;
-z-index:9999;
-text-align:center;
-}
 
-.carrinho-flutuante span{
-display:block;
-font-size:14px;
-margin-top:4px;
 }
 
 </style>
@@ -179,37 +166,59 @@ margin-top:4px;
 
 <header>
 
-<img src="imagens/banerrr.png" class="banner">
+<h1>🍔 Minha Hamburgueria</h1>
+
+<p>Delivery • Faça seu pedido</p>
 
 </header>
 
-<div id="statusLoja"></div>
+<img src="imagens/banner.jpg" class="banner">
 
-<div class="abas">
+<h2 class="tituloCategoria">
 
-<button>🍔 Hambúrguer</button>
+🍔 Hambúrgueres
 
-<button>🍕 Pizzas</button>
-
-<button>🥤 Bebidas</button>
-
-</div>
-
-<div class="container">
-  
-  <h2 class="tituloCategoria">🍔 Hambúrgueres</h2>
+</h2>
 
 <div class="produto">
 
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<img src="imagens/xburger.jpg">
+
+<div class="produtoInfo">
+
+<h3>X-Burger</h3>
+
+<p>Pão, hambúrguer, queijo, alface, tomate e molho especial.</p>
+
+<p class="preco">R$ 18,00</p>
+
+<div class="controles">
+
+<button onclick="diminuirProduto('X-Burger')">−</button>
+
+<span id="qtd-X-Burger" class="quantidade">0</span>
+
+<button onclick="adicionar('X-Burger',18)">+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="produto">
+
+<img src="imagens/xsalada.jpg">
 
 <div class="produtoInfo">
 
 <h3>X-Salada</h3>
 
-<p>Hambúrguer, queijo, salada e molho especial.</p>
+<p>Pão, hambúrguer, queijo, alface, tomate e maionese.</p>
 
-<p class="preco">R$ 7,50</p>
+<p class="preco">R$ 20,00</p>
 
 <div class="controles">
 
@@ -217,51 +226,27 @@ margin-top:4px;
 
 <span id="qtd-X-Salada" class="quantidade">0</span>
 
-<button onclick="adicionar('X-Salada',7.50)">+</button>
+<button onclick="adicionar('X-Salada',20)">+</button>
 
 </div>
 
 </div>
 
 </div>
+
+
 
 <div class="produto">
 
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-
-<div class="produtoInfo">
-
-<h3>X-Burguer</h3>
-
-<p>Hambúrguer e queijo.</p>
-
-<p class="preco">R$ 11,00</p>
-
-<div class="controles">
-
-<button onclick="diminuirProduto('X-Burguer')">−</button>
-
-<span id="qtd-X-Burguer" class="quantidade">0</span>
-
-<button onclick="adicionar('X-Burguer',11)">+</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="produto">
-
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<img src="imagens/xbacon.jpg">
 
 <div class="produtoInfo">
 
 <h3>X-Bacon</h3>
 
-<p>Hambúrguer, bacon e queijo.</p>
+<p>Pão, hambúrguer, queijo, bacon crocante, alface e tomate.</p>
 
-<p class="preco">R$ 12,00</p>
+<p class="preco">R$ 24,00</p>
 
 <div class="controles">
 
@@ -269,25 +254,55 @@ margin-top:4px;
 
 <span id="qtd-X-Bacon" class="quantidade">0</span>
 
-<button onclick="adicionar('X-Bacon',12)">+</button>
+<button onclick="adicionar('X-Bacon',24)">+</button>
 
 </div>
 
 </div>
 
 </div>
+
+
 
 <div class="produto">
 
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<img src="imagens/xegg.jpg">
+
+<div class="produtoInfo">
+
+<h3>X-Egg</h3>
+
+<p>Pão, hambúrguer, queijo, ovo, alface e tomate.</p>
+
+<p class="preco">R$ 23,00</p>
+
+<div class="controles">
+
+<button onclick="diminuirProduto('X-Egg')">−</button>
+
+<span id="qtd-X-Egg" class="quantidade">0</span>
+
+<button onclick="adicionar('X-Egg',23)">+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="produto">
+
+<img src="imagens/xtudo.jpg">
 
 <div class="produtoInfo">
 
 <h3>X-Tudo</h3>
 
-<p>Hambúrguer completo da casa.</p>
+<p>Pão, dois hambúrgueres, queijo, bacon, ovo, presunto, alface, tomate e molho especial.</p>
 
-<p class="preco">R$ 15,00</p>
+<p class="preco">R$ 32,00</p>
 
 <div class="controles">
 
@@ -295,7 +310,7 @@ margin-top:4px;
 
 <span id="qtd-X-Tudo" class="quantidade">0</span>
 
-<button onclick="adicionar('X-Tudo',15)">+</button>
+<button onclick="adicionar('X-Tudo',32)">+</button>
 
 </div>
 
@@ -303,33 +318,13 @@ margin-top:4px;
 
 </div>
 
-<div class="produto">
 
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
 
-<div class="produtoInfo">
+<h2 class="tituloCategoria">
 
-<h3>Moda da Casa</h3>
+🍕 Pizzas
 
-<p>Hambúrguer especial da casa.</p>
-
-<p class="preco">R$ 17,50</p>
-
-<div class="controles">
-
-<button onclick="diminuirProduto('Moda da Casa')">−</button>
-
-<span id="qtd-Moda da Casa" class="quantidade">0</span>
-
-<button onclick="adicionar('Moda da Casa',17.50)">+</button>
-
-</div>
-
-</div>
-
-</div>
-
-<h2 class="tituloCategoria">🍕 Pizzas</h2>
+</h2>
 
 <div class="produto">
 
@@ -356,6 +351,7 @@ margin-top:4px;
 </div>
 
 </div>
+
 
 
 <div class="produto">
@@ -385,9 +381,10 @@ margin-top:4px;
 </div>
 
 
+
 <div class="produto">
 
-<img src="imagens/c14b5c05a9142554f99223478247c089.jpg">
+<img src="imagens/frango_catupiry.jpg">
 
 <div class="produtoInfo">
 
@@ -412,9 +409,10 @@ margin-top:4px;
 </div>
 
 
+
 <div class="produto">
 
-<img src="imagens/mucarelacomcalabresa.jpg">
+<img src="imagens/mucarela_calabresa.jpg">
 
 <div class="produtoInfo">
 
@@ -439,9 +437,10 @@ margin-top:4px;
 </div>
 
 
+
 <div class="produto">
 
-<img src="imagens/portuguesa.png">
+<img src="imagens/portuguesa.jpg">
 
 <div class="produtoInfo">
 
@@ -464,6 +463,7 @@ margin-top:4px;
 </div>
 
 </div>
+
 
 
 <div class="produto">
@@ -493,6 +493,7 @@ margin-top:4px;
 </div>
 
 
+
 <div class="produto">
 
 <img src="imagens/milho.jpg">
@@ -520,12 +521,16 @@ margin-top:4px;
 </div>
 
 
-<h2 class="tituloCategoria">🥤 Bebidas</h2>
 
+<h2 class="tituloCategoria">
+
+🥤 Bebidas
+
+</h2>
 
 <div class="produto">
 
-<img src="imagens/coca.jpg">
+<img src="imagens/coca2l.jpg">
 
 <div class="produtoInfo">
 
@@ -548,9 +553,10 @@ margin-top:4px;
 </div>
 
 
+
 <div class="produto">
 
-<img src="imagens/coca.jpg">
+<img src="imagens/coca25l.jpg">
 
 <div class="produtoInfo">
 
@@ -572,17 +578,73 @@ margin-top:4px;
 
 </div>
 
-<!-- CARRINHO FLUTUANTE COMPLETO -->
+
+
+<div class="produto">
+
+<img src="imagens/guarana2l.jpg">
+
+<div class="produtoInfo">
+
+<h3>Guaraná Antarctica 2L</h3>
+
+<p class="preco">R$ 11,00</p>
+
+<div class="controles">
+
+<button onclick="diminuirProduto('Guaraná Antarctica 2L')">−</button>
+
+<span id="qtd-Guaraná Antarctica 2L" class="quantidade">0</span>
+
+<button onclick="adicionar('Guaraná Antarctica 2L',11)">+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="produto">
+
+<img src="imagens/fanta2l.jpg">
+
+<div class="produtoInfo">
+
+<h3>Fanta Laranja 2L</h3>
+
+<p class="preco">R$ 11,00</p>
+
+<div class="controles">
+
+<button onclick="diminuirProduto('Fanta Laranja 2L')">−</button>
+
+<span id="qtd-Fanta Laranja 2L" class="quantidade">0</span>
+
+<button onclick="adicionar('Fanta Laranja 2L',11)">+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================== CARRINHO FLUTUANTE ================== -->
 
 <div id="carrinhoFlutuante" class="carrinho-flutuante" onclick="abrirCarrinho()">
 
-🛒 Ver Carrinho
-
-<span id="contadorCarrinho">0</span>
+<div style="font-size:22px;">🛒</div>
 
 <div id="resumoCarrinho">
+
 0 itens • R$ 0,00
+
 </div>
+
+<span id="contadorCarrinho">0</span>
 
 </div>
 
@@ -590,29 +652,23 @@ margin-top:4px;
 
 <div id="avisoCarrinho">
 
+Produto adicionado!
+
 </div>
 
 
 
-<!-- MODAL DO CARRINHO -->
-
 <div id="modalCarrinho" class="modal-carrinho">
-
 
 <div class="carrinho-box">
 
-
 <h2>🛒 Meu Pedido</h2>
-
-
 
 <div id="listaCarrinho">
 
 <p>Seu carrinho está vazio.</p>
 
 </div>
-
-
 
 <div class="totalCarrinho">
 
@@ -626,245 +682,86 @@ R$ 0,00
 
 </div>
 
-
-
 <button class="btnFinalizar" onclick="irParaFinalizar()">
 
-✅ Finalizar Pedido
+Finalizar Pedido
 
 </button>
-
-
 
 <button class="btnFechar" onclick="fecharCarrinho()">
 
-⬅ Continuar Comprando
+Continuar Comprando
 
 </button>
 
-
-
 </div>
 
 </div>
-
-
-
 
 <style>
 
+/* ===========================
+   CARRINHO FLUTUANTE
+=========================== */
 
 .carrinho-flutuante{
-
 position:fixed;
-
 right:20px;
-
 bottom:20px;
-
-background:#009900;
-
-color:white;
-
+background:#16a34a;
+color:#fff;
 padding:15px 20px;
-
 border-radius:50px;
-
-font-size:16px;
-
-font-weight:bold;
-
 cursor:pointer;
-
-box-shadow:0 5px 15px #555;
-
-z-index:999;
-
-
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+min-width:190px;
+text-align:center;
 }
 
-
+.carrinho-flutuante:hover{
+transform:scale(1.05);
+}
 
 #contadorCarrinho{
-
+position:absolute;
+top:-8px;
+right:-8px;
 background:red;
-
+color:#fff;
+width:28px;
+height:28px;
+display:flex;
+align-items:center;
+justify-content:center;
 border-radius:50%;
-
-padding:3px 8px;
-
-margin-left:5px;
-
+font-weight:bold;
+border:2px solid white;
 }
-
-
 
 #resumoCarrinho{
-
 font-size:13px;
-
 margin-top:5px;
-
 }
 
+@keyframes balancar{
 
-
-@keyframes balanco{
-
-
-0%{
-transform:rotate(0);
-}
-
-
-25%{
-transform:rotate(-10deg);
-}
-
-
-50%{
-transform:rotate(10deg);
-}
-
-
-75%{
-transform:rotate(-10deg);
-}
-
-
-100%{
-transform:rotate(0);
-}
-
+0%{transform:rotate(0deg);}
+25%{transform:rotate(-10deg);}
+50%{transform:rotate(10deg);}
+75%{transform:rotate(-8deg);}
+100%{transform:rotate(0deg);}
 
 }
-
-
 
 .animarCarrinho{
 
-animation:balanco .5s;
+animation:balancar .5s;
 
 }
 
-
-
-
-.modal-carrinho{
-
-display:none;
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.6);
-
-z-index:1000;
-
-
-}
-
-
-
-.carrinho-box{
-
-background:white;
-
-width:90%;
-
-max-width:400px;
-
-margin:50px auto;
-
-padding:20px;
-
-border-radius:15px;
-
-
-}
-
-
-
-.itemCarrinho{
-
-display:flex;
-
-justify-content:space-between;
-
-border-bottom:1px solid #ddd;
-
-padding:10px 0;
-
-
-}
-
-
-
-.quantidadeCarrinho button{
-
-background:#111;
-
-color:white;
-
-border:none;
-
-padding:5px 10px;
-
-border-radius:5px;
-
-
-}
-
-
-
-.btnFinalizar{
-
-width:100%;
-
-padding:15px;
-
-margin-top:15px;
-
-background:#009900;
-
-color:white;
-
-border:none;
-
-border-radius:10px;
-
-font-size:17px;
-
-
-}
-
-
-
-.btnFechar{
-
-width:100%;
-
-padding:12px;
-
-margin-top:10px;
-
-background:#ddd;
-
-border:none;
-
-border-radius:10px;
-
-
-}
-
-
+/* AVISO */
 
 #avisoCarrinho{
 
@@ -874,9 +771,9 @@ position:fixed;
 
 right:20px;
 
-bottom:90px;
+bottom:100px;
 
-background:#009900;
+background:#16a34a;
 
 color:white;
 
@@ -886,16 +783,151 @@ border-radius:10px;
 
 font-weight:bold;
 
-z-index:2000;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
 
+z-index:10000;
 
 }
 
+/* MODAL */
+
+.modal-carrinho{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.6);
+
+z-index:99999;
+
+}
+
+.carrinho-box{
+
+background:white;
+
+width:92%;
+
+max-width:430px;
+
+margin:40px auto;
+
+padding:20px;
+
+border-radius:15px;
+
+max-height:80vh;
+
+overflow:auto;
+
+}
+
+.itemCarrinho{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:12px 0;
+
+border-bottom:1px solid #ddd;
+
+}
+
+.quantidadeCarrinho{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+.quantidadeCarrinho button{
+
+width:30px;
+
+height:30px;
+
+border:none;
+
+border-radius:50%;
+
+background:#16a34a;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+.totalCarrinho{
+
+margin-top:20px;
+
+font-size:22px;
+
+font-weight:bold;
+
+text-align:right;
+
+}
+
+.btnFinalizar{
+
+width:100%;
+
+padding:15px;
+
+background:#16a34a;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+font-size:18px;
+
+margin-top:20px;
+
+cursor:pointer;
+
+}
+
+.btnFechar{
+
+width:100%;
+
+padding:12px;
+
+background:#ddd;
+
+border:none;
+
+border-radius:10px;
+
+margin-top:10px;
+
+cursor:pointer;
+
+}
 
 </style>
 
 <script>
-
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -903,341 +935,241 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 function adicionar(nome, preco){
 
+    let produto = carrinho.find(item => item.nome === nome);
 
-let produto = carrinho.find(item => item.nome === nome);
+    if(produto){
 
+        produto.quantidade++;
 
+    }else{
 
-if(produto){
+        carrinho.push({
 
-produto.quantidade++;
+            nome:nome,
 
-}else{
+            preco:preco,
 
+            quantidade:1
 
-carrinho.push({
+        });
 
-nome:nome,
+    }
 
-preco:preco,
+    atualizarQuantidadeProduto(nome);
 
-quantidade:1
+    salvarCarrinho();
 
-});
+    mostrarAviso(nome);
 
-
-}
-
-
-
-salvarCarrinho();
-
-
-mostrarAviso(nome);
-
-
-animarCarrinho();
-
+    animarCarrinho();
 
 }
-
 
 
 
 function diminuirProduto(nome){
 
+    let produto = carrinho.find(item => item.nome === nome);
 
-let produto = carrinho.find(item => item.nome === nome);
+    if(!produto) return;
 
+    produto.quantidade--;
 
+    if(produto.quantidade<=0){
 
-if(produto){
+        carrinho = carrinho.filter(item=>item.nome!==nome);
 
+    }
 
-produto.quantidade--;
+    atualizarQuantidadeProduto(nome);
 
-
-
-if(produto.quantidade <= 0){
-
-
-carrinho = carrinho.filter(item => item.nome !== nome);
-
-
-}
-
-
-}
-
-
-salvarCarrinho();
-
+    salvarCarrinho();
 
 }
 
 
 
+function atualizarQuantidadeProduto(nome){
 
-function alterarQuantidade(index, valor){
+    let span = document.getElementById("qtd-"+nome);
 
+    if(!span) return;
 
-carrinho[index].quantidade += valor;
+    let produto = carrinho.find(item=>item.nome===nome);
 
-
-
-if(carrinho[index].quantidade <= 0){
-
-
-carrinho.splice(index,1);
-
+    span.innerHTML = produto ? produto.quantidade : 0;
 
 }
-
-
-
-salvarCarrinho();
-
-
-}
-
 
 
 
 function salvarCarrinho(){
 
+    localStorage.setItem(
 
-localStorage.setItem(
+        "carrinho",
 
-"carrinho",
+        JSON.stringify(carrinho)
 
-JSON.stringify(carrinho)
+    );
 
-);
-
-
-atualizarCarrinho();
-
+    atualizarCarrinho();
 
 }
-
-
 
 
 
 function atualizarCarrinho(){
 
+    let lista = document.getElementById("listaCarrinho");
 
-let lista=document.getElementById("listaCarrinho");
+    let total = 0;
 
+    let quantidadeTotal = 0;
 
-let total=0;
+    if(!lista) return;
 
-
-let quantidade=0;
-
-
-
-if(!lista) return;
+    lista.innerHTML="";
 
 
 
-lista.innerHTML="";
+    if(carrinho.length==0){
+
+        lista.innerHTML="<p>Seu carrinho está vazio.</p>";
+
+    }else{
+
+        carrinho.forEach((item,index)=>{
+
+            let subtotal=item.preco*item.quantidade;
+
+            total+=subtotal;
+
+            quantidadeTotal+=item.quantidade;
+
+            lista.innerHTML+=`
+
+            <div class="itemCarrinho">
+
+                <div>
+
+                    <strong>${item.nome}</strong><br>
+
+                    R$ ${subtotal.toFixed(2)}
+
+                </div>
+
+                <div class="quantidadeCarrinho">
+
+                    <button onclick="alterarQuantidade(${index},-1)">−</button>
+
+                    <span>${item.quantidade}</span>
+
+                    <button onclick="alterarQuantidade(${index},1)">+</button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+    }
 
 
 
-if(carrinho.length==0){
+    document.getElementById("totalCarrinho").innerHTML=
+
+        "R$ "+total.toFixed(2);
 
 
-lista.innerHTML="<p>Seu carrinho está vazio.</p>";
 
+    document.getElementById("contadorCarrinho").innerHTML=
+
+        quantidadeTotal;
+
+
+
+    document.getElementById("resumoCarrinho").innerHTML=
+
+        quantidadeTotal+" itens • R$ "+total.toFixed(2);
 
 }
 
-else{
+function alterarQuantidade(index, valor){
 
+    carrinho[index].quantidade += valor;
 
-carrinho.forEach((item,index)=>{
+    if(carrinho[index].quantidade <= 0){
 
+        carrinho.splice(index,1);
 
-let subtotal=item.preco*item.quantidade;
+    }
 
-
-
-total += subtotal;
-
-
-quantidade += item.quantidade;
-
-
-
-lista.innerHTML += `
-
-
-<div class="itemCarrinho">
-
-
-<div>
-
-
-<strong>${item.nome}</strong>
-
-
-<br>
-
-
-R$ ${subtotal.toFixed(2)}
-
-
-</div>
-
-
-
-<div class="quantidadeCarrinho">
-
-
-<button onclick="alterarQuantidade(${index},-1)">
-
-−
-
-</button>
-
-
-
-${item.quantidade}
-
-
-
-<button onclick="alterarQuantidade(${index},1)">
-
-+
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-`;
-
-
-
-});
-
+    salvarCarrinho();
 
 }
-
-
-
-document.getElementById("totalCarrinho").innerHTML =
-
-"R$ "+total.toFixed(2);
-
-
-
-document.getElementById("resumoCarrinho").innerHTML =
-
-quantidade+" itens • R$ "+total.toFixed(2);
-
-
-
-document.getElementById("contadorCarrinho").innerHTML =
-
-quantidade;
-
-
-
-}
-
-
 
 
 
 function mostrarAviso(nome){
 
+    let aviso = document.getElementById("avisoCarrinho");
 
-let aviso=document.getElementById("avisoCarrinho");
+    aviso.innerHTML = "🛒 " + nome + " adicionado ao carrinho!";
 
+    aviso.style.display = "block";
 
-aviso.innerHTML="🛒 "+nome+" adicionado!";
+    setTimeout(function(){
 
+        aviso.style.display = "none";
 
-aviso.style.display="block";
-
-
-
-setTimeout(()=>{
-
-
-aviso.style.display="none";
-
-
-},2500);
-
-
+    },2000);
 
 }
-
 
 
 
 function animarCarrinho(){
 
+    let botao = document.getElementById("carrinhoFlutuante");
 
-let botao=document.getElementById("carrinhoFlutuante");
+    botao.classList.remove("animarCarrinho");
 
+    void botao.offsetWidth;
 
-
-botao.classList.remove("animarCarrinho");
-
-
-void botao.offsetWidth;
-
-
-botao.classList.add("animarCarrinho");
-
+    botao.classList.add("animarCarrinho");
 
 }
-
-
 
 
 
 function abrirCarrinho(){
 
-
-document.getElementById("modalCarrinho").style.display="block";
-
+    document.getElementById("modalCarrinho").style.display = "block";
 
 }
-
 
 
 
 function fecharCarrinho(){
 
-
-document.getElementById("modalCarrinho").style.display="none";
-
+    document.getElementById("modalCarrinho").style.display = "none";
 
 }
-
-
 
 
 
 function irParaFinalizar(){
 
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-window.location.href="finalizar.html";
-
+    window.location.href = "finalizar.html";
 
 }
 
 
-// Atualiza o carrinho ao abrir a página
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -1245,20 +1177,20 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-
-// Fecha o carrinho clicando fora da janela
-
 window.onclick = function(event){
 
     let modal = document.getElementById("modalCarrinho");
 
     if(event.target == modal){
 
-        modal.style.display="none";
+        fecharCarrinho();
 
     }
 
 }
 
-
 </script>
+
+</body>
+
+</html>
