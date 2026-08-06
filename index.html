@@ -1227,10 +1227,14 @@ html, body{
 <script>
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  
+  function adicionar(nome, preco){
 
+    if(lojaFechada){
+        alert("No momento estamos fechados. Voltaremos em breve!");
+        return;
+    }
 
-
-function adicionar(nome, preco){
 
 
     let produto = carrinho.find(item => item.nome === nome);
@@ -1453,18 +1457,28 @@ window.onclick = function(event){
 
 }
 
+let lojaFechada = false;
+
 function atualizarStatusLoja() {
     const hora = new Date().getHours();
     const status = document.getElementById("statusLoja");
 
-    if (hora >= 7 && hora < 22) {
+    if (hora >= 7 && hora < 24) {
+
         status.innerHTML = "🟢 ABERTO AGORA";
         status.style.color = "#16a34a";
+
+        lojaFechada = false;
+
     } else {
+
         status.innerHTML = "🔴 FECHADO NO MOMENTO";
         status.style.color = "#dc2626";
+
+        lojaFechada = true;
     }
 }
+
 
 atualizarStatusLoja();
 
