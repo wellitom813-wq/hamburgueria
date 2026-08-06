@@ -1414,7 +1414,7 @@ function atualizarStatusLoja() {
     const hora = new Date().getHours();
     const status = document.getElementById("statusLoja");
 
-    if (hora >= 7 && hora < 24) {
+    if (hora >= 7 || hora < 1) {
 
         status.innerHTML = "🟢 ABERTO AGORA";
         status.style.color = "#16a34a";
@@ -1432,6 +1432,8 @@ function atualizarStatusLoja() {
 
 
 atualizarStatusLoja();
+
+atualizarCarrinho();
 
 </script>
 
