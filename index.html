@@ -892,19 +892,11 @@ Pimenta e Oregano.</p>
 </div>
 
 
+<div id="carrinhoFlutuante" class="finalizar-flutuante" onclick="irParaFinalizar()">
 
-<!-- ================== CARRINHO FLUTUANTE ================== -->
-<div id="carrinhoFlutuante" class="carrinho-flutuante" onclick="abrirCarrinho()">
-
-<div class="titulo-carrinho">
-🛒 Ver Carrinho
+<div class="titulo-finalizar">
+✅ Finalizar Pedido
 </div>
-
-<span id="resumoCarrinho">
-0 itens • R$ 0,00
-</span>
-
-<span id="contadorCarrinho" style="display:none;">0</span>
 
 </div>
 
@@ -967,68 +959,27 @@ Continuar Comprando
 /* ===========================
    CARRINHO FLUTUANTE
 =========================== */
-.carrinho-flutuante{
-    position: fixed;
+.finalizar-flutuante{
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px;
     right: 20px;
-    bottom: 200px;
-    background:#16a34a;
-    color:white;
-    width:90px;
-    padding:10px;
-    border-radius:20px;
-    text-align:center;
-    font-size:14px;
-    cursor:pointer;
+    background: #16a34a;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 9999;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.carrinho-flutuante img{
-    width:35px;
-    display:block;
-    margin:0 auto 5px;
-}
-
-.carrinho-flutuante span{
-    display:block;
+.titulo-finalizar{
     font-size:18px;
-    margin-top:5px;
-    font-weight:bold;
-}
-
-.titulo-carrinho{
-    font-size:15px;
     font-weight:900;
     display:block;
-}
-
-#resumoCarrinho{
-    font-size:16px !important;
-    font-weight:bold !important;
-}
-.carrinho-flutuante strong{
-    font-size:17px;
-    font-weight:900;
-}
-
-
-#contadorCarrinho{
-position:absolute;
-top:-8px;
-right:-8px;
-background:red;
-color:#fff;
-width:28px;
-height:28px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-font-weight:bold;
-border:2px solid white;
-}
-
-#resumoCarrinho{
-font-size:13px;
-margin-top:5px;
 }
 
 @keyframes balancar{
