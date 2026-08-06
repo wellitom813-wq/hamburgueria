@@ -1181,10 +1181,16 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   
   function adicionar(nome, preco){
 
-    if(lojaFechada){
-        alert("No momento estamos fechados. Voltaremos em breve!");
-        return;
-    }
+if(lojaFechada){
+    alert(
+        "🍕 Cantinho Pizza Burguer\n\n" +
+        "Olá! No momento nossa loja está fechada.\n\n" +
+        "🕖 Horário de funcionamento:\n" +
+        "Das 07:00 às 01:00.\n\n" +
+        "💚 Agradecemos a sua visita e esperamos atendê-lo em breve!"
+    );
+    return;
+}
 
 
 
