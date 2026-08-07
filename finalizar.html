@@ -464,19 +464,19 @@ return;
 let mensagem =
 "═════【 *NOVO PEDIDO* 】═════\n\n" +
 
-"Nome:\n" +
+"► Nome:\n" +
 nome + "\n\n" +
 
-"WhatsApp:\n" +
+"► WhatsApp:\n" +
 telefone + "\n\n" +
 
-"Endereço:\n" +
+"► Endereço:\n" +
 endereco + "\n\n" +
 
-"Região:\n" +
+"► Região:\n" +
 bairro + "\n\n" +
 
-"Pagamento:\n" +
+"► Pagamento:\n" +
 pagamento + "\n\n" +
 
 "═════【 *PEDIDO* 】═════\n\n";
@@ -484,22 +484,22 @@ pagamento + "\n\n" +
 carrinho.forEach(function(item){
 
     mensagem +=
-    item.quantidade + "x " + item.nome + "\n" +
-    "R$ " + (item.preco * item.quantidade).toFixed(2).replace(".", ",") + "\n\n";
+    "► " + item.quantidade + "x " + item.nome + "\n" +
+    "   R$ " + (item.preco * item.quantidade).toFixed(2).replace(".", ",") + "\n\n";
 
 });
 
 mensagem +=
 
-"Taxa de entrega:\n" +
-"R$ " + taxa.toFixed(2).replace(".", ",") + "\n\n" +
+"► Taxa de entrega:\n" +
+"   R$ " + taxa.toFixed(2).replace(".", ",") + "\n\n" +
 
-"Total do pedido:\n" +
-"R$ " + (total + taxa).toFixed(2).replace(".", ",") + "\n\n" +
+"► Total do pedido:\n" +
+"   R$ " + (total + taxa).toFixed(2).replace(".", ",") + "\n\n" +
 
 "════════════════════\n\n" +
 
-"Cantinho Pizza Burguer\n\n" +
+"*Cantinho Pizza Burguer*\n\n" +
 
 "Obrigado pela preferência!\n\n" +
 
