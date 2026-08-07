@@ -479,59 +479,37 @@ let mensagem =
 
 
 
-carrinho.forEach(item=>{
+carrinho.forEach(function(item){
 
-
-mensagem +=
-
-item.quantidade+"x "+item.nome+
-
-" - R$ "+
-
-(item.preco*item.quantidade).toFixed(2)
-
-+"%0A";
-
+    mensagem +=
+    item.quantidade + "x " + item.nome + "\n" +
+    "R$ " + (item.preco * item.quantidade).toFixed(2) + "\n\n";
 
 });
 
-
-
 mensagem +=
+"──────────────────────\n" +
+"Taxa de entrega:\n" +
+"R$ " + taxa.toFixed(2) + "\n\n" +
 
-"%0A🚚 Taxa entrega: R$ "+taxa.toFixed(2)+
+"Total:\n" +
+"R$ " + (total + taxa).toFixed(2) + "\n\n" +
 
-"%0A💰 Total: R$ "+(total+taxa).toFixed(2)+
-"%0A%0A";
+"══════════════════════\n" +
+"Cantinho Pizza Burguer\n\n" +
 
-mensagem +=
-"%0A%0A━━━━━━━━━━━━━━"+
-"%0A🍕 Cantinho Pizza Burguer"+
-"%0A%0AObrigado pela preferência!"+
-"%0A%0ASeu pedido está sendo preparado. Em breve ele chegará até você."+
-"%0A%0A💚 Esperamos atendê-lo novamente!";
+"Obrigado pela preferência!\n\n" +
 
-    
-let numero="5587991532323";
+"Seu pedido está sendo preparado.\n\n" +
+
+"Esperamos atendê-lo novamente!";
+
+let numero = "5587991532323";
 
 window.open(
-"https://wa.me/"+numero+"?text="+mensagem,
-"_blank"
+    "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem),
+    "_blank"
 );
-
-
-
-}
-
-
-
-function voltarCardapio(){
-
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-    window.location.href="index.html";
-
-}
 
 
 
